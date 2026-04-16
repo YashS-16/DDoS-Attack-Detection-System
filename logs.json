@@ -1,0 +1,19 @@
+[
+    {
+        "packet_id": 9727,
+        "timestamp": "2026-04-17 01:38:23",
+        "prediction": "Normal Traffic",
+        "risk_score": 31.16,
+        "severity": "LOW",
+        "alert": "Normal Traffic",
+        "anomaly": true,
+        "reconstruction_error": 2.11,
+        "models": {
+            "rf_prob": 0.36,
+            "xgb_prob": 0.5400000214576721,
+            "lr_prob": 1.0
+        },
+        "ip": "192.168.1.5",
+        "attack_type": "Normal Traffic"
+    }
+]

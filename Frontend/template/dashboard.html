@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DDoS Shield · Live Dashboard</title>
+    <link rel="stylesheet" href="/static/design/style.css">
+    <!-- Chart.js CDN for clean, minimal charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- optional: subtle smooth UI feel -->
+    <style>
+        /* additional inline overrides for chart containers (safe fallback) */
+        .chart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem auto;
+            justify-content: center;
+        }
+        .chart-card {
+            background: #0f172a;
+            border-radius: 24px;
+            padding: 1rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            backdrop-filter: blur(2px);
+        }
+        .chart-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+        }
+        @media (min-width: 768px) {
+            .chart-card {
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+        canvas {
+            max-height: 280px;
+            width: 100%;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 1rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <!-- top bar with minimal navigation -->
+    <div class="top-bar">
+        <div class="logo-area">
+            <span class="logo-icon">🛡️</span>
+            <span class="logo-text">DDoS Shield</span>
+        </div>
+        <div class="nav-links">
+            <a href="/precautions" class="nav-btn">🛡️ Precautions</a>
+            <a href="/" class="nav-btn">🏠 Home</a>
+        </div>
+    </div>
+
+    <h2 class="page-title">📡 Live Threat Intelligence</h2>
+
+    <!-- current status cards (modern minimal) -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Risk Level</div>
+            <div class="stat-value" id="risk">--</div>
+            <div class="stat-trend">real‑time</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Attack Type</div>
+            <div class="stat-value" id="attack">--</div>
+            <div class="stat-trend">latest detection</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Severity</div>
+            <div class="stat-value" id="severity">--</div>
+            <div class="stat-trend">impact index</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Source IP</div>
+            <div class="stat-value" id="ip">--</div>
+            <div class="stat-trend">flagged address</div>
+        </div>
+    </div>
+
+    <!-- CHARTS SECTION: minimal & insightful -->
+    <div class="section-title">📈 Attack analytics</div>
+    <div class="chart-grid">
+        <div class="chart-card">
+            <div style="font-weight:500; margin-bottom:12px; color:#94a3b8;">Risk trend (last logs)</div>
+            <canvas id="riskTrendChart" width="400" height="250" style="max-height:250px; width:100%"></canvas>
+        </div>
+        <div class="chart-card">
+            <div style="font-weight:500; margin-bottom:12px; color:#94a3b8;">Attack type distribution</div>
+            <canvas id="attackPieChart" width="400" height="250" style="max-height:250px; width:100%"></canvas>
+        </div>
+    </div>
+
+    <!-- recent logs with clean design -->
+    <div class="section-title">📋 Recent security events</div>
+    <div class="logs-wrapper">
+        <div id="logs" class="logs-list">
+            <div class="log-placeholder">Loading telemetry ...</div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='logic_js/dashboard.js') }}"></script>
+</body>
+</html>

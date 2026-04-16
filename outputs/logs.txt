@@ -1,0 +1,403 @@
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | NORMAL TRAFFIC | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 13.30224} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.332389} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.091497} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.222711} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.307372} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.200195} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.37, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 199.526631} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.004808} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 8.766785} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 1.231576} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.239102} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9878, 'anomaly': 0, 'error': 0.0014} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.899055} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.002139} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.127975} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.369679} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.062101} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.125846} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.339147} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.533809} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687, 'risk_score': 45.71940314769745} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499, 'risk_score': 44.563825006783006} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024, 'risk_score': 60.1217229074046} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🔴 HIGH
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512, 'risk_score': 57.03801107637819} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247, 'risk_score': 32.01089413908408} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877, 'risk_score': 43.160810506343836} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813, 'risk_score': 51.95254274559294} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324, 'risk_score': 42.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213, 'risk_score': 62.921720724673534} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082, 'risk_score': 34.063859428769796} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677, 'risk_score': 60.52172241244843} | ⚠️  WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248, 'risk_score': 41.16081050634385} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248, 'risk_score': 41.16081050634385} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324, 'risk_score': 42.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024, 'risk_score': 60.1217229074046} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512, 'risk_score': 57.03801107637819} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247, 'risk_score': 32.01089413908408} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877, 'risk_score': 43.160810506343836} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813, 'risk_score': 51.95254274559294} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213, 'risk_score': 62.921720724673534} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677, 'risk_score': 60.52172241244843} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687, 'risk_score': 45.71940314769745} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082, 'risk_score': 34.063859428769796} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499, 'risk_score': 44.563825006783006} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813, 'risk_score': 51.95254274559294} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024, 'risk_score': 60.1217229074046} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512, 'risk_score': 57.03801107637819} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082, 'risk_score': 34.063859428769796} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248, 'risk_score': 41.16081050634385} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247, 'risk_score': 32.01089413908408} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677, 'risk_score': 60.52172241244843} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324, 'risk_score': 42.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213, 'risk_score': 62.921720724673534} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877, 'risk_score': 43.160810506343836} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543, 'risk_score': 44.76081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413, 'risk_score': 44.36081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687, 'risk_score': 45.71940314769745} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499, 'risk_score': 44.563825006783006} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625, 'risk_score': 47.307514888048175} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811, 'risk_score': 43.56081050634384} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.35, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.094024, 'risk_score': 60.12} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.43413, 'risk_score': 44.36} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.31, 'xgb_pred': 0, 'xgb_prob': 0.0557, 'lr_pred': 1, 'lr_prob': 0.9997, 'anomaly': 0, 'error': 0.003082, 'risk_score': 34.06} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.0588, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 5.383499, 'risk_score': 44.56} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.39, 'xgb_pred': 1, 'xgb_prob': 0.5451, 'lr_pred': 1, 'lr_prob': 0.9999, 'anomaly': 0, 'error': 0.013813, 'risk_score': 51.95} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.36, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.116677, 'risk_score': 60.52} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.818014, 'risk_score': 43.56} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 36.938625, 'risk_score': 47.31} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.26, 'xgb_pred': 0, 'xgb_prob': 0.0616, 'lr_pred': 1, 'lr_prob': 0.9882, 'anomaly': 0, 'error': 0.009247, 'risk_score': 32.01} | Normal Traffic | Severity: 🟢 LOW
+{'rf_pred': 0, 'rf_prob': 0.32, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 2.399238, 'risk_score': 44.36} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.29, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.896877, 'risk_score': 43.16} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.27, 'xgb_pred': 1, 'xgb_prob': 0.5413, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.292512, 'risk_score': 57.04} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.289106, 'risk_score': 44.76} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.124, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 7.078687, 'risk_score': 45.72} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543, 'risk_score': 44.76} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.24, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.652248, 'risk_score': 41.16} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.3, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.828811, 'risk_score': 43.56} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324, 'risk_score': 42.76} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.42, 'xgb_pred': 1, 'xgb_prob': 0.5374, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.172213, 'risk_score': 62.92} | ⚠️ WARNING: Suspicious Traffic | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661, 'risk_score': 47.31} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.33, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.197543, 'risk_score': 44.76} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.38, 'xgb_pred': 0, 'xgb_prob': 0.0703, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 594.454661, 'risk_score': 47.31} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM
+{'rf_pred': 0, 'rf_prob': 0.28, 'xgb_pred': 0, 'xgb_prob': 0.052, 'lr_pred': 1, 'lr_prob': 1.0, 'anomaly': 1, 'error': 0.760324, 'risk_score': 42.76} | UNKNOWN ATTACK: Anomaly Detected | Severity: 🟠 MEDIUM

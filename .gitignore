@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pkl
+*.h5
+.env
+venv/
+data/
+.ipynb_checkpoints/
+notebooks/processed_data.csv
+*.csv

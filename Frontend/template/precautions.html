@@ -1,0 +1,86 @@
+<!-- precautions.html - refined minimal layout with consistent design -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Shield · Security Precautions</title>
+    <link rel="stylesheet" href="/static/design/style.css">
+    <style>
+        .tips-list {
+            background: #03071260;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin-top: 1rem;
+        }
+        .tips-list li {
+            margin: 0.8rem 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="precautions-container">
+    <div class="precautions-card">
+        <h2 style="display:flex; gap:0.6rem; align-items:center;">🛡️ Adaptive threat response</h2>
+        <div id="attackName" style="font-size:1.6rem; font-weight:600; margin:0.8rem 0; color:#7dd3fc;">Loading intelligence...</div>
+        <div class="tips-list" id="tips"></div>
+        <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+    </div>
+</div>
+
+<script>
+const tipsLibrary = {
+    "DDoS Attack": [
+        "🔹 Activate rate limiting on edge routers",
+        "🔹 Enable Anycast network dispersion",
+        "🔹 Deploy WAF with DDoS signatures",
+        "🔹 Blacklist anomalous source IPs dynamically"
+    ],
+    "UDP Flood": [
+        "🔸 Limit UDP packet size & rate per IP",
+        "🔸 Drop fragmented UDP packets from unknown sources",
+        "🔸 Use UDP-specific traffic profiling"
+    ],
+    "SYN Flood": [
+        "🔸 Increase SYN backlog & enable SYN cookies",
+        "🔸 Deploy SYN proxy mitigation",
+        "🔸 Filter invalid TCP flags"
+    ],
+    "HTTP Flood": [
+        "🔹 Implement CAPTCHA or challenge pages",
+        "🔹 Use request rate throttling per session",
+        "🔹 Enable bot management rules"
+    ],
+    "Normal Traffic": [
+        "✅ No immediate action required",
+        "✅ Continue baseline monitoring",
+        "✅ Keep detection thresholds updated"
+    ]
+};
+
+fetch('/api/data')
+.then(res => res.json())
+.then(data => {
+    if (!data.logs || data.logs.length === 0) {
+        document.getElementById('attackName').innerText = "No data — monitor mode";
+        document.getElementById('tips').innerHTML = "<p>Waiting for traffic analysis...</p>";
+        return;
+    }
+    const lastLog = data.logs[data.logs.length - 1];
+    let attackType = lastLog.prediction || lastLog.attack_type || "Normal Traffic";
+    document.getElementById('attackName').innerHTML = `⚠️ ${attackType}`;
+    let tipsArray = tipsLibrary[attackType] || [
+        "🔹 Review recent attack patterns",
+        "🔹 Isolate affected assets",
+        "🔹 Update firewall ACLs"
+    ];
+    let html = "<ul style='padding-left:1.2rem;'>" + tipsArray.map(t => `<li>${t}</li>`).join('') + "</ul>";
+    document.getElementById('tips').innerHTML = html;
+}).catch(() => {
+    document.getElementById('attackName').innerText = "⚠️ Offline mode";
+    document.getElementById('tips').innerHTML = "<li>Unable to fetch live recommendations</li>";
+});
+</script>
+</body>
+</html>
