@@ -35,8 +35,10 @@ pip install -r requirements.txt
 ### 2️⃣ Run Backend Server
 
 ```bash
+live_capture.py (terminal 1)
 cd Backend
-python app.py
+python app.py (terminal 2)
+
 ```
 
 ---
