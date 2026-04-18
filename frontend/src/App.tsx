@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { fetchLogs, startMonitoring, stopMonitoring, getStatus, LogEntry } from './services/api';
-import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, ServerCrack } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+import { fetchLogs, startMonitoring, stopMonitoring, getStatus, type LogEntry } from './services/api';
+import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function App() {
@@ -161,7 +161,7 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex justify-between items-start mb-4 relative z-10">
               <h3 className="text-slate-400 font-medium">Traffic Status</h3>
-              <ServerCrack className={`w-5 h-5 ${latestLog?.anomaly ? 'text-rose-500' : 'text-emerald-400'}`} />
+              <Server className={`w-5 h-5 ${latestLog?.anomaly ? 'text-rose-500' : 'text-emerald-400'}`} />
             </div>
             <div className="relative z-10">
               <span className="text-2xl font-bold text-white block truncate">
