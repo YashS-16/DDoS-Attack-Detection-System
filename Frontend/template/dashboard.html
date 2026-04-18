@@ -1,117 +1,199 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDoS Shield · Live Dashboard</title>
     <link rel="stylesheet" href="/static/design/style.css">
-    <!-- Chart.js CDN for clean, minimal charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <!-- optional: subtle smooth UI feel -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
-        /* additional inline overrides for chart containers (safe fallback) */
-        .chart-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.8rem;
-            margin: 2rem auto;
-            justify-content: center;
-        }
-        .chart-card {
-            background: #0f172a;
-            border-radius: 24px;
-            padding: 1rem;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-            transition: transform 0.2s ease, box-shadow 0.2s;
-            backdrop-filter: blur(2px);
-        }
-        .chart-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
-        }
-        @media (min-width: 768px) {
-            .chart-card {
-                flex: 1;
-                min-width: 280px;
-            }
-        }
-        canvas {
-            max-height: 280px;
-            width: 100%;
-        }
+        /* SECTION TITLE */
         .section-title {
             font-size: 1.4rem;
-            font-weight: 500;
-            letter-spacing: -0.2px;
-            border-left: 4px solid #38bdf8;
-            padding-left: 1rem;
-            margin: 1.5rem 0 1rem 0;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #e2e8f0;
+        }
+
+        /* MAIN GRID */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* LEFT PANEL */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* CARD */
+        .card {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 1.2rem;
+        }
+
+        /* LARGE CARD */
+        .card.large {
+            min-height: 260px;
+        }
+
+        /* LOG HEADER */
+        .log-header {
+            display: grid;
+            grid-template-columns: 120px 1.5fr 1.5fr 80px;
+            font-size: 12px;
+            color: #64748b;
+            padding: 8px 14px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        /* LOG ENTRY */
+        .log-entry {
+            display: grid;
+            grid-template-columns: 120px 1.5fr 1.5fr 80px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #e2e8f0;
+            border-left: 3px solid #38bdf8;
+            border-radius: 10px;
+            margin-top: 6px;
+            background: #0f172a;
+        }
+
+        /* LOGS CONTAINER */
+        .logs-card {
+            max-height: 260px;
+            overflow-y: auto;
+        }
+
+        /* SCROLLBAR */
+        .logs-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .logs-card::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 10px;
+        }
+
+        .logs-card::-webkit-scrollbar-track {
+            background: transparent;
         }
     </style>
+
 </head>
+
 <body>
 
-<div class="dashboard-container">
-    <!-- top bar with minimal navigation -->
-    <div class="top-bar">
-        <div class="logo-area">
-            <span class="logo-icon">🛡️</span>
-            <span class="logo-text">DDoS Shield</span>
+    <div class="dashboard-container">
+        <!-- NAVBAR -->
+        <div class="top-bar">
+            <div class="logo-area">
+                🛡️ DDoS Shield
+            </div>
+
+            <div class="nav-links">
+                <a href="/precautions" class="nav-btn">Precautions</a>
+                <a href="/" class="nav-btn">Home</a>
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="/precautions" class="nav-btn">🛡️ Precautions</a>
-            <a href="/" class="nav-btn">🏠 Home</a>
+
+        <!-- TITLE -->
+        <h2 class="page-title">Live Threat Intelligence</h2>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Risk</div>
+                <div class="stat-value" id="risk">--</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Attack</div>
+                <div class="stat-value" id="attack">--</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Severity</div>
+                <div class="stat-value" id="severity">--</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">IP</div>
+                <div class="stat-value" id="ip">--</div>
+            </div>
+        </div>
+
+        <!-- ANALYTICS -->
+        <div class="section-title">Attack Analytics</div>
+
+        <div class="main-grid">
+
+            <!-- LEFT -->
+            <div class="left-panel">
+
+                <!-- RISK TREND -->
+                <div class="card large">
+                    <h4>Risk Trend</h4>
+                    <canvas id="riskTrendChart"></canvas>
+                </div>
+
+                <!-- LOGS -->
+                <div class="card logs-card">
+                    <h4>Recent Logs</h4>
+
+                    <div class="log-header">
+                        <span>Time</span>
+                        <span>IP Address</span>
+                        <span>Attack</span>
+                        <span>Risk</span>
+                    </div>
+
+                    <div id="logs"></div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="right-panel">
+
+                <div class="card">
+                    <h4>Attack Distribution</h4>
+                    <canvas id="attackChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h4>Top Attacker</h4>
+                    <p id="top-ip">--</p>
+                    <p>Requests: <span id="top-count">0</span></p>
+                </div>
+
+                <div class="card">
+                    <h4>Status</h4>
+                    <p>Traffic: Stable</p>
+                    <p>Detection: Active</p>
+                    <p>Confidence: Moderate</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <h2 class="page-title">📡 Live Threat Intelligence</h2>
+    <script src="{{ url_for('static', filename='logic_js/dashboard.js') }}"></script>
 
-    <!-- current status cards (modern minimal) -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-label">Risk Level</div>
-            <div class="stat-value" id="risk">--</div>
-            <div class="stat-trend">real‑time</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Attack Type</div>
-            <div class="stat-value" id="attack">--</div>
-            <div class="stat-trend">latest detection</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Severity</div>
-            <div class="stat-value" id="severity">--</div>
-            <div class="stat-trend">impact index</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">Source IP</div>
-            <div class="stat-value" id="ip">--</div>
-            <div class="stat-trend">flagged address</div>
-        </div>
-    </div>
-
-    <!-- CHARTS SECTION: minimal & insightful -->
-    <div class="section-title">📈 Attack analytics</div>
-    <div class="chart-grid">
-        <div class="chart-card">
-            <div style="font-weight:500; margin-bottom:12px; color:#94a3b8;">Risk trend (last logs)</div>
-            <canvas id="riskTrendChart" width="400" height="250" style="max-height:250px; width:100%"></canvas>
-        </div>
-        <div class="chart-card">
-            <div style="font-weight:500; margin-bottom:12px; color:#94a3b8;">Attack type distribution</div>
-            <canvas id="attackPieChart" width="400" height="250" style="max-height:250px; width:100%"></canvas>
-        </div>
-    </div>
-
-    <!-- recent logs with clean design -->
-    <div class="section-title">📋 Recent security events</div>
-    <div class="logs-wrapper">
-        <div id="logs" class="logs-list">
-            <div class="log-placeholder">Loading telemetry ...</div>
-        </div>
-    </div>
-</div>
-
-<script src="{{ url_for('static', filename='logic_js/dashboard.js') }}"></script>
 </body>
+
 </html>

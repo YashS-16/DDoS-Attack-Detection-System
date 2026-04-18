@@ -8,7 +8,6 @@ from predictor import predict, feature_columns
 from alert import generate_alert, get_severity
 from logger import log_result
 from threshold import check_threshold
-from attacker import get_top_attacker
 from autoblock import autoblock
 from early_detection import early_warning
 from attack_type import classify_attack_type
@@ -21,7 +20,7 @@ print("Writing logs to:", os.path.abspath(LOG_FILE))
 
 # GLOBAL BUFFER
 packet_buffer = []
-WINDOW_SIZE = 100
+WINDOW_SIZE = 300
 WINDOW_TIMEOUT = 5.0
 
 # REQUIRED KEYS (CONSISTENCY FIX)
@@ -119,7 +118,7 @@ def process_buffer():
         elif not packet_buffer:
             return
 
-    # ✅ Ensure consistent keys (CRITICAL FIX)
+    # Ensure consistent keys (CRITICAL FIX)
     for pkt in packet_buffer:
         for key in REQUIRED_KEYS:
             if key not in pkt:
@@ -139,21 +138,39 @@ def process_buffer():
     if aggregated["Flow Packets/s"] < 15:
         packet_buffer.clear()
         return
-
     try:
         result = predict(aggregated)
+        if not isinstance(result, dict):
+            print("Invalid prediction output:", result)
+            packet_buffer.clear()
+            return
     except Exception as e:
         print("Prediction error:", e)
         packet_buffer.clear()
         return
 
-    # ✅ Real IP tracking
+    # Real IP tracking
     if "Source IP" in df.columns:
         ip = df["Source IP"].mode()[0]
     else:
         ip = "UNKNOWN"
 
-    attack_type = classify_attack_type(aggregated)
+
+    print("DEBUG result:", result)
+    print("TYPE:", type(result))
+
+   # Raw model prediction
+    raw_attack = classify_attack_type(aggregated)
+
+    risk = result.get("risk_score", 0)
+    if risk < 40:
+        attack_type = "Normal Traffic"
+    elif risk < 70:
+        attack_type = "Suspicious Traffic"
+    else:
+        attack_type = raw_attack
+
+# Alerts & severity
     alert = generate_alert(result, attack_type)
     severity = get_severity(result)
 
@@ -161,10 +178,10 @@ def process_buffer():
         "packet_id": random.randint(1000, 9999),
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "prediction": str(alert),
-        "risk_score": float(round(result["risk_score"], 2)),
-        "severity": str(severity.replace("🟠 ", "").replace("🔴 ", "").replace("🟢 ", "")),
+        "risk_score": float(round(result.get("risk_score", 0), 2)),
+        "severity": str(severity.replace("🟠", "").replace("🔴", "").replace("🟢", "")),
         "alert": str(alert),
-        "anomaly": bool(result["anomaly"]),
+        "anomaly": bool(result.get("anomaly", False)),
         "reconstruction_error": float(round(result["error"], 3)),
         "models": {
             "rf_prob": float(result["rf_prob"]),
@@ -216,8 +233,6 @@ def start_sniffing():
         print("Interface issue. Trying 'Wi-Fi'...")
         sniff(iface="Wi-Fi", prn=process_packet, store=False)
 
-
-# MAIN
 if __name__ == "__main__":
     print("🚀 Starting LIVE DDoS Detection...")
     print("Press Ctrl+C to stop\n")

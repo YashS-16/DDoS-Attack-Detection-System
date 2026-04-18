@@ -33,12 +33,12 @@ def classify_attack_type(data_row):
 
         # ADD THIS (SMART CORRECTION)
         if attack in ["DDoS Attack", "UDP Flood"]:
-            if data_row["Flow Packets/s"] < 60:
+            if data_row.get("Flow Packets/s") < 100:
                 return "Normal Traffic"
             
-        if attack == "UDP Flood":
-            if data_row["Flow Packets/s"] < 500:
-                return "DDoS Attack"
+        # if attack == "UDP Flood":
+        #     if data_row["Flow Packets/s"] < 500:
+        #         return "DDoS Attack"
 
         return attack
 

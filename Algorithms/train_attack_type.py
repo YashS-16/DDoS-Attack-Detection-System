@@ -1,40 +1,113 @@
 import pandas as pd
 import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBClassifier
-from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import os
 
-print("=== Training Attack Type Classifier (Heuristic) ===")
+print("------ Training Attack Type Classifier (Heuristic) ------ ")
+
+# ------ LOAD DATA ------ #
 
 data = pd.read_csv(r'Data/cleaned_data\processed_data.csv')
 
-# Create heuristic attack types (since your dataset may not have AttackType column)
+# ------ CREATE ATTACK TYPES ------ #
+
 data['AttackType'] = 'Benign'
 attack_mask = data['Label'] == 1
+
 data.loc[attack_mask & (data['Protocol'] == 6) & (data['SYN Flag Count'] > 10), 'AttackType'] = 'SYN Flood'
 data.loc[attack_mask & (data['Protocol'] == 17), 'AttackType'] = 'UDP Flood'
 data.loc[attack_mask & (data['Destination Port'].isin([80,443])), 'AttackType'] = 'HTTP Flood'
 data.loc[attack_mask & (data['AttackType'] == 'Benign'), 'AttackType'] = 'DDoS Attack'
 
-# Keep only attack samples
+# ------ FILTER ATTACK DATA ------ #
+
 attack_data = data[data['Label'] == 1].copy()
+
 X = attack_data.drop(['Label', 'AttackType'], axis=1)
 y = attack_data['AttackType']
 
+# Encode labels
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42, stratify=y_encoded)
+# ------ SPLIT ------ #
 
-model = XGBClassifier(n_estimators=100, max_depth=6, learning_rate=0.1, random_state=42, n_jobs=-1)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y_encoded,
+    test_size=0.2,
+    random_state=42,
+    stratify=y_encoded
+)
+
+# ------ TRAIN ------ #
+
+model = XGBClassifier(
+    n_estimators=100,
+    max_depth=6,
+    learning_rate=0.1,
+    random_state=42,
+    n_jobs=-1
+)
+
 model.fit(X_train, y_train)
 
-y_pred = model.predict(X_test)
-print(classification_report(y_test, y_pred, target_names=le.classes_))
+# ------ PREDICT ------ #
+
+y_train_pred = model.predict(X_train)
+y_test_pred = model.predict(X_test)
+
+# ------ EVALUATION ------ #
+
+print("\n--- Train Accuracy ---")
+print(accuracy_score(y_train, y_train_pred))
+
+print("\n--- Test Accuracy ---")
+print(accuracy_score(y_test, y_test_pred))
+
+print("\n--- Classification Report ---")
+print(classification_report(y_test, y_test_pred, target_names=le.classes_))
+
+# ------ CONFUSION MATRIX ------ #
+
+cm = confusion_matrix(y_test, y_test_pred)
+
+plt.figure()
+sns.heatmap(cm, annot=True, fmt='d',
+            xticklabels=le.classes_,
+            yticklabels=le.classes_)
+plt.title("Attack Type Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.show()
+
+# ------ MODEL QUALITY CHECK ------ #
+
+train_acc = accuracy_score(y_train, y_train_pred)
+test_acc = accuracy_score(y_test, y_test_pred)
+
+print("\n------ MODEL QUALITY CHECK ------\n")
+
+if abs(train_acc - test_acc) < 0.05:
+    print("No Overfitting")
+else:
+    print("❌ Overfitting Detected")
+
+if test_acc > 0.90:
+    print("Strong Multi-class Model")
+elif test_acc > 0.80:
+    print("Moderate Model")
+else:
+    print("Weak Model")
+
+# ------ SAVE ------ #
 
 os.makedirs("Models", exist_ok=True)
 joblib.dump(model, "Models/attack_type_model.pkl")
 joblib.dump(le, "Models/attack_type_label_encoder.pkl")
+
 print("Attack type model saved.")

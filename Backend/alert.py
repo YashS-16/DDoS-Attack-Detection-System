@@ -1,39 +1,38 @@
 def generate_alert(result, attack_type):
 
-    score = result['risk_score']
+    if not isinstance(result, dict):
+        return "Normal Traffic"
 
-    # ✅ MOST IMPORTANT FIX
-    # If traffic is normal → ALWAYS return normal
+    score = result.get('risk_score', 0)
+
+    if score < 40:
+        return "Normal Traffic"
+
     if attack_type == "Normal Traffic":
         return "Normal Traffic"
 
-    # 🔥 High confidence attack
     if score >= 75:
-        return f"🚨 {attack_type} Detected"
-
-    # ⚠️ Medium suspicion
+        return f"{attack_type} Detected"
     elif score >= 50:
-        return "⚠️ Suspicious Traffic"
-
-    # ⚠️ Low suspicion (optional but useful for realism)
-    elif score >= 30:
+        return "Suspicious Traffic"
+    elif score >= 35:
         return "Low Suspicion"
+    elif result.get('anomaly'):
+        return "UNKNOWN ATTACK"
 
-    # ❓ Unknown anomaly (fallback)
-    elif result['anomaly']:
-        return "UNKNOWN ATTACK: Anomaly Detected"
-
-    # ✅ Default
     return "Normal Traffic"
 
 
 def get_severity(result):
 
-    score = result['risk_score']
+    if not isinstance(result, dict):
+        return "LOW"
+
+    score = result.get('risk_score', 0)
 
     if score >= 75:
-        return "🔴 HIGH"
+        return "HIGH"
     elif score >= 45:
-        return "🟠 MEDIUM"
+        return "MEDIUM"
     else:
-        return "🟢 LOW"
+        return "LOW"

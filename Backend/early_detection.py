@@ -24,11 +24,11 @@ def early_warning():
 
     # 2. Gradual rise
     if risks[-1] > risks[0] + 15:
-        return "⚠️ EARLY WARNING: Rapid increase in risk detected"
+        return "EARLY WARNING: Rapid increase in risk detected"
 
     # 3. Consistent increase pattern
     if increasing:
-        return "⚠️ EARLY WARNING: Gradual attack buildup detected"
+        return "EARLY WARNING: Gradual attack buildup detected"
 
     return None
 

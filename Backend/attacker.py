@@ -14,7 +14,7 @@ def get_top_attacker():
         with open(LOG_FILE, "r") as f:
             logs = json.load(f)
     except Exception:
-        return None  # ✅ prevents crash
+        return None
 
     ip_count = {}
 
@@ -23,11 +23,9 @@ def get_top_attacker():
         ip = entry.get("ip")
         attack_type = entry.get("attack_type")
 
-        # 🚫 Skip invalid IPs
         if not ip or ip in ["UNKNOWN", "0.0.0.0", "LIVE_TRAFFIC"]:
             continue
-
-        # 🔥 Count only suspicious/attack traffic
+        
         if attack_type not in ["Normal Traffic", "Benign"]:
             ip_count[ip] = ip_count.get(ip, 0) + 1
 
