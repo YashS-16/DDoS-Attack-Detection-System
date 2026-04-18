@@ -22,24 +22,6 @@ This project detects and analyzes potential DDoS attacks in real-time using:
 
 ---
 
-## 🧱 Project Structure
-
-```
-Backend/
-    app.py
-    live_capture.py
-    predictor.py
-    attack_type.py
-    alert.py
-Frontend/
-    templates/
-    static/
-Models/
-logs.json
-```
-
----
-
 ## 🚀 How to Run
 
 ### 1️⃣ Install dependencies
