@@ -11,7 +11,7 @@ LOG_FILE = os.path.join(BASE_DIR, 'logs.json')
 app = Flask(__name__)
 # Enable CORS so the React frontend on Vite (port 5173) can communicate with Flask
 CORS(app)
-
+    
 capture_process = None
 
 @app.route('/api/data')

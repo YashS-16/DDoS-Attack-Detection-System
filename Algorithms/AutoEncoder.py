@@ -123,8 +123,8 @@ plt.show()
 # ------ SAVE ------ #
 
 os.makedirs("Models", exist_ok=True)
-joblib.dump(autoencoder, "Models/autoencoder_mlp.pkl")
-joblib.dump(scaler, "Models/quantile_scaler.pkl")
-joblib.dump(threshold, "Models/autoencoder_threshold_mlp.pkl")
+joblib.dump(autoencoder, "../Models/autoencoder_mlp.pkl")
+joblib.dump(scaler, "../Models/quantile_scaler.pkl")
+joblib.dump(threshold, "../Models/autoencoder_threshold_mlp.pkl")
 
 print("All saved.")
