@@ -6,7 +6,6 @@ LOG_FILE = os.path.join(BASE_DIR, "logs.json")
 
 def log_result(data):
 
-    # Ensure file exists and valid
     if not os.path.exists(LOG_FILE):
         with open(LOG_FILE, "w") as f:
             json.dump([], f)

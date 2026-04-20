@@ -20,7 +20,7 @@ print("Writing logs to:", os.path.abspath(LOG_FILE))
 
 # GLOBAL BUFFER
 packet_buffer = []
-WINDOW_SIZE = 300
+WINDOW_SIZE = 50
 WINDOW_TIMEOUT = 5.0
 
 # REQUIRED KEYS (CONSISTENCY FIX)
@@ -97,6 +97,7 @@ def aggregate_features(df):
 
 # PACKET HANDLER (LIGHTWEIGHT)
 def process_packet(packet):
+    print("Packet captured")
     global packet_buffer
 
     pkt = extract_features_from_packet(packet)
@@ -135,7 +136,7 @@ def process_buffer():
     aggregated = aggregate_features(df)
 
     # 🚫 Ignore very low traffic (reduces false positives)
-    if aggregated["Flow Packets/s"] < 15:
+    if aggregated["Flow Packets/s"] < 2:
         packet_buffer.clear()
         return
     try:
@@ -221,6 +222,7 @@ def process_buffer():
     print(f"Risk Score: {output['risk_score']}")
     print(f"Severity: {severity}")
     print("=" * 60)
+    print("Processing buffer with size:", len(packet_buffer))
 
     packet_buffer.clear()
 
