@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchLogs, startMonitoring, stopMonitoring, getStatus, type LogEntry } from './services/api';
 import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -9,19 +9,24 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchInterval = useRef<number | null>(null);
-
+  // ---------------- FETCH DATA ----------------
   const loadData = async () => {
     try {
       const data = await fetchLogs();
-      // 🔥 FIX: backend returns { logs: [...] }
-      setLogs(data);
+
+      setLogs(prev => {
+        if (JSON.stringify(prev) === JSON.stringify(data)) return prev;
+        return data;
+      });
+
       setError(null);
     } catch (err) {
       console.error('Failed to fetch logs:', err);
+      setError("Failed to fetch logs");
     }
   };
 
+  // ---------------- STATUS ----------------
   const checkStatus = async () => {
     try {
       const { is_running } = await getStatus();
@@ -33,19 +38,17 @@ function App() {
     }
   };
 
+  // ---------------- EFFECT ----------------
   useEffect(() => {
     checkStatus();
     loadData();
 
-    fetchInterval.current = window.setInterval(() => {
-      loadData();
-    }, 2000);
+    const interval = setInterval(loadData, 2000); //2s refresh
 
-    return () => {
-      if (fetchInterval.current) clearInterval(fetchInterval.current);
-    };
+    return () => clearInterval(interval);
   }, []);
 
+  // ---------------- CONTROLS ----------------
   const handleStart = async () => {
     await startMonitoring();
     setIsRunning(true);
@@ -56,16 +59,18 @@ function App() {
     setIsRunning(false);
   };
 
-  const latestLog = logs.length > 0 ? logs[logs.length - 1] : null;
-  const currentRisk = latestLog ? latestLog.risk_score : 0;
+  // ---------------- DERIVED DATA ----------------
+  const latestLog = logs?.[logs.length - 1] || null;
+  const currentRisk = latestLog?.risk_score || 0;
 
   const alerts = logs.filter(l => l.risk_score > 70).slice(-5).reverse();
 
   const chartData = logs.slice(-20).map(l => ({
-    time: l.timestamp?.split(' ')[1] || l.timestamp,
+    time: l.timestamp?.split(' ')?.[1] || l.timestamp || "",
     risk: l.risk_score,
   }));
 
+  // ---------------- LOADING ----------------
   if (loading) {
     return <div className="text-white">Loading Dashboard...</div>;
   }
