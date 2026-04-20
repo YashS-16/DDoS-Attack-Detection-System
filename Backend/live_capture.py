@@ -91,8 +91,11 @@ def aggregate_features(df):
     aggregated = {}
     for col in feature_columns:
         aggregated[col] = aggregated_raw.get(col, 0)
+    
+    print("Flow Packets/s:", aggregated["Flow Packets/s"])
 
     return aggregated
+
 
 
 # PACKET HANDLER (LIGHTWEIGHT)
@@ -136,7 +139,7 @@ def process_buffer():
     aggregated = aggregate_features(df)
 
     # 🚫 Ignore very low traffic (reduces false positives)
-    if aggregated["Flow Packets/s"] < 2:
+    if aggregated["Flow Packets/s"] < 3:
         packet_buffer.clear()
         return
     try:
@@ -156,14 +159,13 @@ def process_buffer():
     else:
         ip = "UNKNOWN"
 
-
     print("DEBUG result:", result)
     print("TYPE:", type(result))
 
    # Raw model prediction
     raw_attack = classify_attack_type(aggregated)
 
-    risk = result.get("risk_score", 0)
+    risk = result.get("risk_score", 0) * 1.5
     if risk < 40:
         attack_type = "Normal Traffic"
     elif risk < 70:
@@ -179,7 +181,7 @@ def process_buffer():
         "packet_id": random.randint(1000, 9999),
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "prediction": str(alert),
-        "risk_score": float(round(result.get("risk_score", 0), 2)),
+        "risk_score": float(round(risk, 2)),
         "severity": str(severity.replace("🟠", "").replace("🔴", "").replace("🟢", "")),
         "alert": str(alert),
         "anomaly": bool(result.get("anomaly", False)),
@@ -223,14 +225,16 @@ def process_buffer():
     print(f"Severity: {severity}")
     print("=" * 60)
     print("Processing buffer with size:", len(packet_buffer))
-
+    
+    if len(packet_buffer) > 0:
+        print("Buffer processed but no attack detected")
     packet_buffer.clear()
 
 
 # SNIFFING THREAD
 def start_sniffing():
     try:
-        sniff(prn=process_packet, store=False)
+        sniff(iface="enps08", prn=process_packet, store=False)
     except OSError:
         print("Interface issue. Trying 'Wi-Fi'...")
         sniff(iface="Wi-Fi", prn=process_packet, store=False)
