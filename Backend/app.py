@@ -17,7 +17,7 @@ capture_process = None
 @app.route('/api/data')
 def get_data():
     if not os.path.exists(LOG_FILE):
-        return jsonify({"logs": []})
+        return jsonify({"logs": logs[-50:]})
 
     try:
         with open(LOG_FILE, 'r') as f:
@@ -34,7 +34,7 @@ def start_monitoring():
 
     if capture_process is None or capture_process.poll() is not None:
         try:
-            # 🔥 IMPORTANT: run live_capture with sudo
+            # IMPORTANT: run live_capture with sudo
             capture_process = subprocess.Popen([
                 "sudo",
                 sys.executable,

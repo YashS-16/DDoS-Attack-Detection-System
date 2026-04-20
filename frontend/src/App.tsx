@@ -14,11 +14,11 @@ function App() {
   const loadData = async () => {
     try {
       const data = await fetchLogs();
+      // 🔥 FIX: backend returns { logs: [...] }
       setLogs(data);
       setError(null);
     } catch (err) {
       console.error('Failed to fetch logs:', err);
-      // Optional: set error state, but we don't want to break the UI constantly on polling failures if backend gen is slow.
     }
   };
 
@@ -37,7 +37,6 @@ function App() {
     checkStatus();
     loadData();
 
-    // Poll every 2 seconds
     fetchInterval.current = window.setInterval(() => {
       loadData();
     }, 2000);
@@ -48,38 +47,27 @@ function App() {
   }, []);
 
   const handleStart = async () => {
-    try {
-      await startMonitoring();
-      setIsRunning(true);
-    } catch (err: any) {
-      setError(err.message || "Failed to start monitoring");
-    }
+    await startMonitoring();
+    setIsRunning(true);
   };
 
   const handleStop = async () => {
-    try {
-      await stopMonitoring();
-      setIsRunning(false);
-    } catch (err: any) {
-      setError(err.message || "Failed to stop monitoring");
-    }
+    await stopMonitoring();
+    setIsRunning(false);
   };
 
-  // Derived metrics
   const latestLog = logs.length > 0 ? logs[logs.length - 1] : null;
   const currentRisk = latestLog ? latestLog.risk_score : 0;
-  
-  // High risk alerts
+
   const alerts = logs.filter(l => l.risk_score > 70).slice(-5).reverse();
 
-  // Chart data preparing
   const chartData = logs.slice(-20).map(l => ({
-    time: l.timestamp.split(' ')[1] || l.timestamp,
+    time: l.timestamp?.split(' ')[1] || l.timestamp,
     risk: l.risk_score,
   }));
 
   if (loading) {
-    return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-cyan-400">Loading Dashboard...</div>;
+    return <div className="text-white">Loading Dashboard...</div>;
   }
 
   return (
