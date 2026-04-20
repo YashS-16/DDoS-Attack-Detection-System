@@ -230,11 +230,10 @@ def process_buffer():
         print("Buffer processed but no attack detected")
     packet_buffer.clear()
 
-
 # SNIFFING THREAD
 def start_sniffing():
     try:
-        sniff(iface="enps08", prn=process_packet, store=False)
+        sniff(iface="enp0s8", prn=process_packet, store=False)
     except OSError:
         print("Interface issue. Trying 'Wi-Fi'...")
         sniff(iface="Wi-Fi", prn=process_packet, store=False)
