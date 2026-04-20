@@ -230,7 +230,7 @@ def process_buffer():
     
     if risk < 40:
         print("Normal traffic processed")
-    packet_buffer = packet_buffer.clear[-20:]
+    packet_buffer = packet_buffer[-20:]
 
 # SNIFFING THREAD
 def start_sniffing():
