@@ -113,6 +113,7 @@ def process_packet(packet):
 
 # MAIN PROCESSING LOOP
 def process_buffer():
+    print("Process cycle running...")
     global packet_buffer
 
     # Wait for enough data
@@ -140,7 +141,8 @@ def process_buffer():
 
     # 🚫 Ignore very low traffic (reduces false positives)
     if aggregated["Flow Packets/s"] < 3:
-        packet_buffer.clear()
+        print("Low Traffic, still logging....")
+        # packet_buffer.clear()
         return
     try:
         result = predict(aggregated)
