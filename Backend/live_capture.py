@@ -118,9 +118,10 @@ def process_buffer():
 
     # Wait for enough data
     if len(packet_buffer) < WINDOW_SIZE:
-        if packet_buffer and (time.time() - packet_buffer[-1]['timestamp'] < WINDOW_TIMEOUT):
+        if not packet_buffer:
             return
-        elif not packet_buffer:
+
+        if time.time() - packet_buffer[0]['timestamp'] < WINDOW_TIMEOUT:
             return
 
     # Ensure consistent keys (CRITICAL FIX)
@@ -141,9 +142,8 @@ def process_buffer():
 
     # 🚫 Ignore very low traffic (reduces false positives)
     if aggregated["Flow Packets/s"] < 3:
-        print("Low Traffic, still logging....")
+        print("Low Traffic detected - logging as normal traffic")
         # packet_buffer.clear()
-        return
     try:
         result = predict(aggregated)
         if not isinstance(result, dict):
@@ -187,7 +187,7 @@ def process_buffer():
         "severity": str(severity.replace("🟠", "").replace("🔴", "").replace("🟢", "")),
         "alert": str(alert),
         "anomaly": bool(result.get("anomaly", False)),
-        "reconstruction_error": float(round(result["error"], 3)),
+        "reconstruction_error": float(round(result.get("error",0),3)),
         "models": {
             "rf_prob": float(result["rf_prob"]),
             "xgb_prob": float(result["xgb_prob"]),
@@ -228,9 +228,9 @@ def process_buffer():
     print("=" * 60)
     print("Processing buffer with size:", len(packet_buffer))
     
-    if len(packet_buffer) > 0:
-        print("Buffer processed but no attack detected")
-    packet_buffer.clear()
+    if risk < 40:
+        print("Normal traffic processed")
+    packet_buffer = packet_buffer.clear[-20:]
 
 # SNIFFING THREAD
 def start_sniffing():
@@ -238,7 +238,7 @@ def start_sniffing():
         sniff(iface="enp0s8", prn=process_packet, store=False)
     except OSError:
         print("Interface issue. Trying 'Wi-Fi'...")
-        sniff(iface="Wi-Fi", prn=process_packet, store=False)
+        sniff(iface="enp0s8", prn=process_packet, store=False)
 
 if __name__ == "__main__":
     print("🚀 Starting LIVE DDoS Detection...")
