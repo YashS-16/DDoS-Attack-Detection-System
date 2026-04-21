@@ -26,7 +26,7 @@ export interface LogEntry {
 
 export const fetchLogs = async (): Promise<LogEntry[]> => {
   const response = await api.get('/data');
-  return response.data.logs || [];
+  return [...(response.data.logs || [])];
 };
 
 export const startMonitoring = async (): Promise<{status: string, message: string}> => {

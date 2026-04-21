@@ -17,7 +17,7 @@ capture_process = None
 @app.route('/api/data')
 def get_data():
     if not os.path.exists(LOG_FILE):
-        return jsonify({"logs": logs[-50:]})
+        return jsonify({"logs": list(logs[-50:])})
 
     try:
         with open(LOG_FILE, 'r') as f:
@@ -25,7 +25,7 @@ def get_data():
     except:
         logs = []
 
-    return jsonify({"logs": logs[-50:]})
+    return jsonify({"logs": []})
 
 # ------------------ START ------------------
 @app.route('/api/start_monitoring', methods=['POST'])
@@ -36,7 +36,6 @@ def start_monitoring():
         try:
             # IMPORTANT: run live_capture with sudo
             capture_process = subprocess.Popen([
-                "sudo",
                 sys.executable,
                 os.path.join(BASE_DIR, 'live_capture.py')
             ])

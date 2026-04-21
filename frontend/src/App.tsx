@@ -8,23 +8,30 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  
   // ---------------- FETCH DATA ----------------
   const loadData = async () => {
-    try {
-      const data = await fetchLogs();
+  try {
+    const data = await fetchLogs();
 
-      setLogs(prev => {
-        if (JSON.stringify(prev) === JSON.stringify(data)) return prev;
-        return data;
-      });
+    setLogs(prev => {
+      if (
+        prev.length > 0 &&
+        data.length > 0 &&
+        prev[prev.length - 1]?.timestamp === data[data.length - 1]?.timestamp
+      ) {
+        return prev;
+      }
 
-      setError(null);
-    } catch (err) {
-      console.error('Failed to fetch logs:', err);
-      setError("Failed to fetch logs");
-    }
-  };
+      return data;
+    });
+
+    setError(null);
+  } catch (err) {
+    console.error('Failed to fetch logs:', err);
+    setError("Failed to fetch logs");
+  }
+};
 
   // ---------------- STATUS ----------------
   const checkStatus = async () => {

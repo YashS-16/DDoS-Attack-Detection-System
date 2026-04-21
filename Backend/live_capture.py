@@ -141,7 +141,7 @@ def process_buffer():
     aggregated = aggregate_features(df)
 
     # 🚫 Ignore very low traffic (reduces false positives)
-    if aggregated["Flow Packets/s"] < 3:
+    if aggregated["Flow Packets/s"] < 1:
         print("Low Traffic detected - logging as normal traffic")
         # packet_buffer.clear()
     try:
@@ -248,4 +248,4 @@ if __name__ == "__main__":
 
     while True:
         process_buffer()
-        time.sleep(2)
+        time.sleep(0.5)
