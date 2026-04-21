@@ -11,6 +11,8 @@ def log_result(data):
     """
     try:
         with open(LOG_FILE, "a") as f:
-            f.write(json.dumps(data) + "\n")
+            json.dump(data, f)
+            f.write("\n")
     except Exception as e:
-        print(f"Error logging result: {e}")
+        print(f"Error logging result: {e}")
+

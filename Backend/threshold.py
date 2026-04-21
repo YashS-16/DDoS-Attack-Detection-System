@@ -10,8 +10,15 @@ def check_threshold():
     if not os.path.exists(LOG_FILE):
         return None
 
-    with open(LOG_FILE, "r") as f:
-        logs = json.load(f)
+    logs = []
+    try:
+        with open(LOG_FILE, "r") as f:
+            for line in f:
+                if line.strip():
+                    logs.append(json.loads(line))
+    except Exception as e:
+        print(f"Error reading logs in threshold: {e}")
+        return None
 
     # Need minimum data
     if len(logs) < 5:
@@ -20,6 +27,7 @@ def check_threshold():
     # Take last 5 entries
     recent = logs[-5:]
     risks = [entry["risk_score"] for entry in recent]
+
     high_count = sum(1 for r in risks if r > 70)
 
     alert = None
