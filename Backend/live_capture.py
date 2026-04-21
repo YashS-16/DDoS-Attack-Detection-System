@@ -140,10 +140,11 @@ def process_buffer():
 
     aggregated = aggregate_features(df)
 
-    # 🚫 Ignore very low traffic (reduces false positives)
-    if aggregated["Flow Packets/s"] < 1:
-        print("Low Traffic detected - logging as normal traffic")
+    # Ignore extremely low traffic (effectively disabled for testing)
+    if aggregated["Flow Packets/s"] < 0.1:
+        print("Extremely low traffic - skipping analysis")
         # packet_buffer.clear()
+        return
     try:
         result = predict(aggregated)
         if not isinstance(result, dict):

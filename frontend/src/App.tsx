@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchLogs, startMonitoring, stopMonitoring, getStatus, type LogEntry } from './services/api';
-import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server } from 'lucide-react';
+import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server, Trash2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function App() {
@@ -50,21 +50,51 @@ function App() {
     checkStatus();
     loadData();
 
-    const interval = setInterval(loadData, 2000); //2s refresh
+    // Poll logs every 2s
+    const dataInterval = setInterval(loadData, 2000);
+    // Poll status every 5s to keep UI in sync
+    const statusInterval = setInterval(checkStatus, 5000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(dataInterval);
+      clearInterval(statusInterval);
+    };
   }, []);
 
   // ---------------- CONTROLS ----------------
   const handleStart = async () => {
-    await startMonitoring();
-    setIsRunning(true);
+    try {
+      await startMonitoring();
+      setIsRunning(true);
+      setError(null);
+    } catch (err) {
+      setError("Failed to start monitoring");
+    }
   };
 
   const handleStop = async () => {
-    await stopMonitoring();
-    setIsRunning(false);
+    try {
+      await stopMonitoring();
+      setIsRunning(false);
+      setError(null);
+    } catch (err) {
+      setError("Failed to stop monitoring");
+    }
   };
+
+  const handleClearLogs = async () => {
+    if (!window.confirm("Are you sure you want to clear all logs?")) return;
+    try {
+      // We'll need to define this in api.ts
+      const { clearLogs } = await import('./services/api');
+      await clearLogs();
+      setLogs([]);
+      setError(null);
+    } catch (err) {
+      setError("Failed to clear logs");
+    }
+  };
+
 
   // ---------------- DERIVED DATA ----------------
   const latestLog = logs?.[logs.length - 1] || null;
@@ -105,6 +135,15 @@ function App() {
             </div>
             
             <button
+              onClick={handleClearLogs}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 border border-white/5 transition-all duration-300"
+              title="Clear all logs"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span className="hidden sm:inline">Clear Logs</span>
+            </button>
+
+            <button
               onClick={isRunning ? handleStop : handleStart}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
                 isRunning 
@@ -115,6 +154,7 @@ function App() {
               {isRunning ? <Square className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
               {isRunning ? 'Stop Capture' : 'Start Capture'}
             </button>
+
           </div>
         </div>
       </header>

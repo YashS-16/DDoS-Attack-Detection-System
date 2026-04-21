@@ -5,18 +5,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = os.path.join(BASE_DIR, "logs.json")
 
 def log_result(data):
-
-    if not os.path.exists(LOG_FILE):
-        with open(LOG_FILE, "w") as f:
-            json.dump([], f)
-
+    """
+    Append-only logger using JSON Lines format.
+    Each entry is a single JSON object followed by a newline.
+    """
     try:
-        with open(LOG_FILE, "r") as f:
-            logs = json.load(f)
-    except:
-        logs = []   # if file corrupted → reset
-
-    logs.append(data)
-
-    with open(LOG_FILE, "w") as f:
-        json.dump(logs, f, indent=4)
+        with open(LOG_FILE, "a") as f:
+            f.write(json.dumps(data) + "\n")
+    except Exception as e:
+        print(f"Error logging result: {e}")

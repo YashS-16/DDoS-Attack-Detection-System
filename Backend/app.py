@@ -17,15 +17,33 @@ capture_process = None
 @app.route('/api/data')
 def get_data():
     if not os.path.exists(LOG_FILE):
-        return jsonify({"logs": list(logs[-50:])})
+        return jsonify({"logs": []})
 
+    logs = []
     try:
+        # Read the last 50 lines (entries) from the JSONL file
         with open(LOG_FILE, 'r') as f:
-            logs = json.load(f)
-    except:
+            # For simplicity in this small app, we read all lines. 
+            # In a massive production app we would use a more efficient tail.
+            lines = f.readlines()
+            for line in lines[-50:]:
+                if line.strip():
+                    logs.append(json.loads(line))
+    except Exception as e:
+        print(f"Error reading logs: {e}")
         logs = []
 
-    return jsonify({"logs": []})
+    return jsonify({"logs": logs})
+
+# ------------------ CLEAR LOGS ------------------
+@app.route('/api/logs/clear', methods=['POST'])
+def clear_logs():
+    try:
+        with open(LOG_FILE, 'w') as f:
+            f.truncate(0)
+        return jsonify({"status": "success", "message": "Logs cleared"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 # ------------------ START ------------------
 @app.route('/api/start_monitoring', methods=['POST'])
@@ -34,7 +52,7 @@ def start_monitoring():
 
     if capture_process is None or capture_process.poll() is not None:
         try:
-            # IMPORTANT: run live_capture with sudo
+            # IMPORTANT: run live_capture with sudo on Linux, but here we just run it
             capture_process = subprocess.Popen([
                 sys.executable,
                 os.path.join(BASE_DIR, 'live_capture.py')
@@ -69,4 +87,4 @@ def get_status():
 
 # ------------------ RUN ------------------
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=False)

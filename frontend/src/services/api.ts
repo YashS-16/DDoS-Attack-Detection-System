@@ -43,3 +43,8 @@ export const getStatus = async (): Promise<{is_running: boolean}> => {
   const response = await api.get('/status');
   return response.data;
 };
+
+export const clearLogs = async (): Promise<any> => {
+  const response = await api.post('/logs/clear');
+  return response.data;
+};
