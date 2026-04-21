@@ -1,32 +1,16 @@
-import json
-import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE = os.path.join(BASE_DIR, "logs.json")
+from log_reader import read_logs_tail
 
 def check_threshold():
-
-    # If no logs → skip
-    if not os.path.exists(LOG_FILE):
-        return None
-
-    logs = []
-    try:
-        with open(LOG_FILE, "r") as f:
-            for line in f:
-                if line.strip():
-                    logs.append(json.loads(line))
-    except Exception as e:
-        print(f"Error reading logs in threshold: {e}")
-        return None
+    # Take last 100 logs (or default n) and slice the last 5 for this logic
+    logs = read_logs_tail(5)
 
     # Need minimum data
     if len(logs) < 5:
         return None
 
-    # Take last 5 entries
-    recent = logs[-5:]
-    risks = [entry["risk_score"] for entry in recent]
+    # Processing logs
+    risks = [entry["risk_score"] for entry in logs]
+
 
     high_count = sum(1 for r in risks if r > 70)
 
