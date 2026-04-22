@@ -172,16 +172,24 @@ def process_buffer():
     # -------- ATTACK TYPE -------- #
     raw_attack = classify_attack_type(aggregated)
 
+    # -------- FINAL RISK FROM MODEL -------- #
     risk = result.get("risk_score", 0)
 
-    # Controlled boost for demo visibility
-    if result["rf_prob"] > 0.4 or result["xgb_prob"] >0.4:
-        risk += 20
+# -------- CONTROLLED ADJUSTMENT -------- #
+    adjustment = 0
+
+    if result["rf_prob"] > 0.5 or result["xgb_prob"] > 0.5:
+        adjustment += 10
 
     if result.get("anomaly"):
-        risk += 15
+        adjustment += 10
 
+    risk += adjustment
+
+# -------- NORMALIZE -------- #
     risk = max(0, min(100, risk))
+
+    result["risk score"] = risk
 
 
     if risk < 30:

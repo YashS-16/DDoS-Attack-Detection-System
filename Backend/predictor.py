@@ -51,16 +51,13 @@ def predict(data_row):
         anomaly, error = detect_anomaly(data_row)
 
         # -------- BASE SCORE -------- #
-        base_score = (0.5 * rf_prob + 0.4 * xgb_prob + 0.1 * lr_prob) * 100
+        base_score = (rf_prob + xgb_prob + lr_prob) / 3 * 100
 
-        # -------- CONTROLLED BOOST -------- #
+        # -------- NORMALIZE -------- #
+        base_score = base_score * 0.6
+
+        # -------- BOOST -------- #
         boost = 0
-
-        if rf_prob > 0.4 or xgb_prob > 0.4:
-            boost += 10
-
-        if rf_prob > 0.6 or xgb_prob > 0.6:
-            boost += 15
 
         if anomaly:
             boost += 10
@@ -71,15 +68,13 @@ def predict(data_row):
         # -------- FINAL SCORE -------- #
         risk_score = base_score + boost
 
-        # -------- DECAY -------- #
-        if base_score < 40:
-            risk_score *= 0.7  
-
-        # -------- CLAMP -------- #
+        # -------- CONTROL -------- #
         risk_score = max(0, min(100, risk_score))
-
-        # -------- SMOOTHING -------- #
         risk_score = smooth_score(risk_score)
+
+        # -------- DEBUG -------- #
+        print("RF:", rf_prob, "XGB:", xgb_prob, "LR:", lr_prob,
+              "Base:", base_score, "Final:", risk_score)
 
         return {
             "rf_prob": round(rf_prob, 2),
@@ -92,6 +87,7 @@ def predict(data_row):
 
     except Exception as e:
         print("Prediction error:", e)
+
         return {
             "rf_prob": 0,
             "xgb_prob": 0,
