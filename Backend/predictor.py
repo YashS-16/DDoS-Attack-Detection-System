@@ -68,23 +68,24 @@ def predict(data_row, pps):
         avg_prob = (rf_prob + xgb_prob + lr_prob) / 3.0
 
         # Volume factor – makes risk sensitive to packet rate
-        if pps < 30:
-            vol_factor = 0.2
-        elif pps < 150:
-            vol_factor = 0.6
+        if rf_prob > 0.8 and xgb_prob > 0.8 and lr_prob > 0.8:
+        # Ignore model probabilities – use intensity only
+            if pps < 30:
+                raw_risk = 20 + (pps / 30) * 20      # 20–40
+            elif pps < 150:
+                raw_risk = 40 + ((pps - 30) / 120) * 30   # 40–70
+            else:
+                raw_risk = 70 + min(30, (pps - 150) / 50 * 30)  # 70–100
         else:
-            vol_factor = 1.0
-
-        # Anomaly contribution – continuous (error typically 0 to 0.2)
-        # threshold is around 0.05, so error/threshold can be up to 4
-        anomaly_contrib = min(25, (anomaly_error / threshold) * 10)
-
-        # Raw risk (0-100 scale)
-        raw_risk = (avg_prob * 70) + (vol_factor * 20) + anomaly_contrib
-        raw_risk = max(0, min(100, raw_risk))
-
-        # Apply momentum and smoothing
-        final_risk = compute_risk_with_momentum(raw_risk)
+            print(f"pps={pps:.1f} | avg_prob={avg_prob:.2f} | vol_factor={vol_factor:.2f} | raw_risk={raw_risk:.1f}")
+    # Original dynamic formula (but with stronger volume factor)
+            avg_prob = (rf_prob + xgb_prob + lr_prob) / 3.0
+    # More aggressive volume factor
+            vol_factor = min(1.0, pps / 150)   # 0–1 linear
+            anomaly_contrib = min(25, (anomaly_error / threshold) * 15)
+            raw_risk = (avg_prob * 50) + (vol_factor * 40) + anomaly_contrib
+    # Apply momentum and smoothing
+            final_risk = compute_risk_with_momentum(raw_risk)
 
         # Debug output
         print(f"RF:{rf_prob:.2f} XGB:{xgb_prob:.2f} LR:{lr_prob:.2f} | "
@@ -108,5 +109,5 @@ def predict(data_row, pps):
             "lr_prob": 0,
             "anomaly": False,
             "error": 0,
-            "risk_score": 50   # neutral default
+            "risk_score": 50 
         }

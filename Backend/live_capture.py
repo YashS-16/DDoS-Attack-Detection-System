@@ -19,7 +19,7 @@ LOG_FILE = os.path.join(BASE_DIR, "logs.json")
 print("Writing logs to:", os.path.abspath(LOG_FILE))
 
 # -------- TIME-BASED WINDOW (instead of packet count) -------- #
-WINDOW_DURATION = 2.0          # seconds
+WINDOW_DURATION = 3.0          # seconds
 window_packets = []
 window_start = time.time()
 
@@ -158,10 +158,8 @@ def process_buffer():
         # Initialize buffers with feature names from predictor
         from predictor import feature_columns as fc
         init_adaptive_scaler(fc)
-    scaled_features = adaptive_scale(aggregated)
-
-    # Predict using dynamic risk (pass pps)
-    result = predict(scaled_features, pps)
+    # Use raw aggregated features (no adaptive scaling)
+        result = predict(aggregated, pps)
     if not isinstance(result, dict):
         return
 
