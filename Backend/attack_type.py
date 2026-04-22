@@ -20,7 +20,7 @@ except Exception as e:
 def classify_attack_type(data_row):
 
     if model is None or le is None:
-        return "Unknown (no model)"
+        return "Unknown"
 
     try:
         df = pd.DataFrame([data_row])
@@ -31,14 +31,10 @@ def classify_attack_type(data_row):
         pred_id = model.predict(df)[0]
         attack = le.inverse_transform([pred_id])[0]
 
-        # ADD THIS (SMART CORRECTION)
-        if attack in ["DDoS Attack", "UDP Flood"]:
-            if data_row.get("Flow Packets/s") < 100:
+        # 🔥 LESS STRICT FILTER (IMPORTANT)
+        if attack in ["DDoS Attack", "UDP Flood", "SYN Flood"]:
+            if data_row.get("Flow Packets/s", 0) < 50:
                 return "Normal Traffic"
-            
-        # if attack == "UDP Flood":
-        #     if data_row["Flow Packets/s"] < 500:
-        #         return "DDoS Attack"
 
         return attack
 

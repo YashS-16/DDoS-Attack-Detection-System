@@ -5,22 +5,20 @@ def generate_alert(result, attack_type):
 
     score = result.get('risk_score', 0)
 
-    if score < 40:
+    if score < 30:
         return "Normal Traffic"
 
-    if attack_type == "Normal Traffic":
-        return "Normal Traffic"
-
-    if score >= 75:
-        return f"{attack_type} Detected"
-    elif score >= 50:
-        return "Suspicious Traffic"
-    elif score >= 35:
+    if score < 50:
         return "Low Suspicion"
-    elif result.get('anomaly'):
-        return "UNKNOWN ATTACK"
 
-    return "Normal Traffic"
+    if score < 70:
+        return "⚠️ Suspicious Traffic"
+
+    # HIGH RISK
+    if attack_type != "Normal Traffic":
+        return f"🚨 {attack_type} Detected"
+    
+    return "🚨 High Risk Traffic"
 
 
 def get_severity(result):
@@ -30,9 +28,9 @@ def get_severity(result):
 
     score = result.get('risk_score', 0)
 
-    if score >= 75:
+    if score >= 70:
         return "HIGH"
-    elif score >= 45:
+    elif score >= 50:
         return "MEDIUM"
     else:
         return "LOW"
