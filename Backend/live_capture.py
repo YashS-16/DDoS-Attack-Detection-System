@@ -1,10 +1,9 @@
 import pandas as pd
 import datetime
-import random
 import time
 import threading
 from scapy.all import sniff, IP, TCP, UDP
-from predictor import predict, feature_columns
+from predictor import predict
 from alert import generate_alert, get_severity
 from logger import log_result
 from threshold import check_threshold
@@ -12,32 +11,52 @@ from autoblock import autoblock
 from early_detection import early_warning
 from attack_type import classify_attack_type
 import os
+from collections import deque
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = os.path.join(BASE_DIR, "logs.json")
 
 print("Writing logs to:", os.path.abspath(LOG_FILE))
 
-# GLOBAL BUFFER
-packet_buffer = []
-WINDOW_SIZE = 50
-WINDOW_TIMEOUT = 5.0
+# -------- TIME-BASED WINDOW (instead of packet count) -------- #
+WINDOW_DURATION = 2.0          # seconds
+window_packets = []
+window_start = time.time()
 
-# REQUIRED KEYS (CONSISTENCY FIX)
+# -------- ADAPTIVE SCALING BUFFERS -------- #
+# Keep last 100 values of each feature for running z-score
+feature_buffers = {}
+feature_columns = None   # will be set after loading scaler in predictor
+
+def init_adaptive_scaler(cols):
+    global feature_buffers
+    feature_buffers = {col: deque(maxlen=100) for col in cols}
+
+def adaptive_scale(features_dict):
+    """Convert raw features to z-scores based on recent history."""
+    scaled = {}
+    for col, val in features_dict.items():
+        buf = feature_buffers.get(col)
+        if buf is None:
+            scaled[col] = val
+            continue
+        buf.append(val)
+        if len(buf) < 10:
+            scaled[col] = val
+        else:
+            mean = sum(buf) / len(buf)
+            variance = sum((x - mean) ** 2 for x in buf) / len(buf)
+            std = variance ** 0.5 + 1e-6
+            scaled[col] = (val - mean) / std
+    return scaled
+
+# Required keys for DataFrame
 REQUIRED_KEYS = [
-    'timestamp',
-    'Protocol',
-    'Total Length',
-    'SYN Flag Count',
-    'ACK Flag Count',
-    'Destination Port',
-    'Source IP'
+    'timestamp', 'Protocol', 'Total Length', 'SYN Flag Count',
+    'ACK Flag Count', 'Destination Port', 'Source IP'
 ]
 
-# PACKET FEATURE EXTRACTION
 def extract_features_from_packet(packet):
-
-    # Always same structure
     features = {
         'timestamp': time.time(),
         'Protocol': 0,
@@ -47,171 +66,133 @@ def extract_features_from_packet(packet):
         'Destination Port': 0,
         'Source IP': "0.0.0.0"
     }
-
     if IP in packet:
         features['Protocol'] = packet[IP].proto
         features['Total Length'] = len(packet)
         features['Source IP'] = packet[IP].src
-
     if TCP in packet:
         features['SYN Flag Count'] = 1 if packet[TCP].flags.S else 0
         features['ACK Flag Count'] = 1 if packet[TCP].flags.A else 0
         features['Destination Port'] = packet[TCP].dport
-
     elif UDP in packet:
         features['Destination Port'] = packet[UDP].dport
-
     return features
 
-
-# AGGREGATION FUNCTION
 def aggregate_features(df):
-
-    aggregated_raw = {}
-
-    # Time normalization (IMPORTANT)
+    """Aggregate packet-level DataFrame into one row of features."""
     time_span = df["timestamp"].max() - df["timestamp"].min()
     if time_span <= 0:
         time_span = 1.0
 
-    aggregated_raw["Flow Packets/s"] = len(df) / time_span
-    aggregated_raw["Flow Bytes/s"] = df["Total Length"].sum() / time_span
-    aggregated_raw["Average Packet Size"] = df["Total Length"].mean()
+    aggregated = {}
+    aggregated["Flow Packets/s"] = len(df) / time_span
+    aggregated["Flow Bytes/s"] = df["Total Length"].sum() / time_span
+    aggregated["Average Packet Size"] = df["Total Length"].mean()
 
     proto_mode = df["Protocol"].mode()
-    aggregated_raw["Protocol"] = proto_mode[0] if not proto_mode.empty else 0
+    aggregated["Protocol"] = proto_mode[0] if not proto_mode.empty else 0
 
-    aggregated_raw["SYN Flag Count"] = df["SYN Flag Count"].sum()
-    aggregated_raw["ACK Flag Count"] = df["ACK Flag Count"].sum()
+    aggregated["SYN Flag Count"] = df["SYN Flag Count"].sum()
+    aggregated["ACK Flag Count"] = df["ACK Flag Count"].sum()
 
     port_mode = df["Destination Port"].mode()
-    aggregated_raw["Destination Port"] = port_mode[0] if not port_mode.empty else 0
+    aggregated["Destination Port"] = port_mode[0] if not port_mode.empty else 0
 
-    # Force correct feature order
-    aggregated = {}
-    for col in feature_columns:
-        aggregated[col] = aggregated_raw.get(col, 0)
-    
-    print("Flow Packets/s:", aggregated["Flow Packets/s"])
+    # Add extra features for sensitivity
+    aggregated["Packet Size Std"] = df["Total Length"].std() if len(df) > 1 else 0
+    aggregated["SYN_ACK_Ratio"] = (
+        aggregated["SYN Flag Count"] / (aggregated["ACK Flag Count"] + 1e-6)
+    )
+    # Unique source IPs (approximation – you can improve)
+    aggregated["Unique IPs"] = df["Source IP"].nunique()
 
+    # Ensure all required feature columns are present (fill missing with 0)
+    from predictor import feature_columns as req_cols
+    for col in req_cols:
+        if col not in aggregated:
+            aggregated[col] = 0
     return aggregated
 
-
-
-# PACKET HANDLER (LIGHTWEIGHT)
 def process_packet(packet):
-    print("Packet captured")
-    global packet_buffer
-
+    """Called by Scapy for each packet. Stores packet in current window."""
+    global window_packets
     pkt = extract_features_from_packet(packet)
-    packet_buffer.append(pkt)
+    window_packets.append(pkt)
+    # Prevent memory blow
+    if len(window_packets) > 5000:
+        window_packets = window_packets[-2000:]
 
-    # Prevent memory overflow
-    if len(packet_buffer) > 2000:
-        packet_buffer = packet_buffer[-1000:]
-
-
-# MAIN PROCESSING LOOP
 def process_buffer():
-    global packet_buffer
-
-    if not packet_buffer:
+    """Periodically called: if window duration elapsed, aggregate & predict."""
+    global window_packets, window_start
+    now = time.time()
+    if now - window_start < WINDOW_DURATION:
+        return
+    if len(window_packets) < 5:
+        # Not enough data – reset timer but keep existing packets?
+        window_start = now
         return
 
-    # Wait for enough packets OR timeout
-    if len(packet_buffer) < WINDOW_SIZE:
-        if time.time() - packet_buffer[0]['timestamp'] < WINDOW_TIMEOUT:
-            return
+    # Take snapshot and clear
+    buffer_copy = window_packets.copy()
+    window_packets = []
+    window_start = now
 
-    # -------- FIX 1: TAKE STABLE SNAPSHOT -------- #
-    buffer_copy = packet_buffer.copy()
-
-    # -------- FIX 2: RESET BUFFER EARLY -------- #
-    packet_buffer = []
-
-    # -------- FIX 3: CLEAN DATA -------- #
+    # Create DataFrame
     try:
         df = pd.DataFrame(buffer_copy)
-
-        # Ensure required columns
         for col in REQUIRED_KEYS:
             if col not in df.columns:
                 df[col] = 0
-
         df = df.fillna(0)
-
-        if df.empty or len(df) < 5:
-            return
-
     except Exception as e:
         print("DataFrame error:", e)
         return
 
-    # -------- AGGREGATION -------- #
+    # Aggregate features
     aggregated = aggregate_features(df)
+    pps = aggregated["Flow Packets/s"]
 
-    if aggregated["Flow Packets/s"] < 0.1:
-        print("Low traffic - skipping")
+    # Adaptive scaling
+    if not feature_buffers:
+        # Initialize buffers with feature names from predictor
+        from predictor import feature_columns as fc
+        init_adaptive_scaler(fc)
+    scaled_features = adaptive_scale(aggregated)
+
+    # Predict using dynamic risk (pass pps)
+    result = predict(scaled_features, pps)
+    if not isinstance(result, dict):
         return
 
-    # -------- PREDICTION -------- #
-    try:
-        result = predict(aggregated)
-
-        if not isinstance(result, dict):
-            print("Invalid prediction output")
-            return
-
-    except Exception as e:
-        print("Prediction error:", e)
-        return
-
-    # -------- IP EXTRACTION -------- #
+    # Extract source IP (most frequent)
     ip = df["Source IP"].mode()[0] if "Source IP" in df.columns else "UNKNOWN"
 
-    # -------- ATTACK TYPE -------- #
+    # Attack type classification
     raw_attack = classify_attack_type(aggregated)
+    risk = result["risk_score"]
 
-    # -------- FINAL RISK FROM MODEL -------- #
-    risk = result.get("risk_score", 0)
-
-# -------- CONTROLLED ADJUSTMENT -------- #
-    adjustment = 0
-
-    if result["rf_prob"] > 0.5 or result["xgb_prob"] > 0.5:
-        adjustment += 10
-
-    if result.get("anomaly"):
-        adjustment += 10
-
-    risk += adjustment
-
-# -------- NORMALIZE -------- #
-    risk = max(0, min(100, risk))
-
-    result["risk score"] = risk
-
-
+    # Determine final attack type based on risk
     if risk < 30:
         attack_type = "Normal Traffic"
     elif risk < 60:
         attack_type = "Suspicious Traffic"
     else:
-        attack_type = raw_attack if raw_attack != "Normal Traffic" else "DDoS Attack"
+        attack_type = raw_attack if raw_attack not in ["Normal Traffic", "Unknown"] else "DDoS Attack"
 
-    # -------- OUTPUT -------- #
+    # Generate alert and severity
     alert = generate_alert(result, attack_type)
     severity = get_severity(result)
 
     output = {
-        "packet_id": random.randint(1000, 9999),
+        "packet_id": int(time.time() * 1000) % 10000,
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "prediction": str(alert),
         "risk_score": float(round(risk, 2)),
-        "severity": str(severity.replace("🟠", "").replace("🔴", "").replace("🟢", "")),
+        "severity": str(severity).replace("🟠", "").replace("🔴", "").replace("🟢", ""),
         "alert": str(alert),
         "anomaly": bool(result.get("anomaly", False)),
-        "reconstruction_error": float(round(result.get("error", 0), 3)),
+        "reconstruction_error": float(round(result.get("error", 0), 4)),
         "models": {
             "rf_prob": float(result["rf_prob"]),
             "xgb_prob": float(result["xgb_prob"]),
@@ -223,7 +204,7 @@ def process_buffer():
 
     log_result(output)
 
-    # -------- SYSTEM FEATURES -------- #
+    # Additional system checks
     threshold_alert = check_threshold()
     if threshold_alert:
         print("🚨 THRESHOLD ALERT:", threshold_alert)
@@ -237,21 +218,20 @@ def process_buffer():
     print(f"IP: {ip}")
     print(f"Attack Type: {attack_type}")
     print(f"Risk Score: {output['risk_score']}")
+    print(f"Anomaly Error: {output['reconstruction_error']}")
     print("=" * 60)
-# SNIFFING THREAD
+
 def start_sniffing():
     try:
         sniff(iface="enp0s8", prn=process_packet, store=False)
     except OSError:
-        print("Interface issue. Trying 'Wi-Fi'(enp0s8)...")
-        sniff(iface="enp0s8", prn=process_packet, store=False)
+        print("Interface 'enp0s8' not found. Trying 'eth0'...")
+        sniff(iface="eth0", prn=process_packet, store=False)
 
 if __name__ == "__main__":
-    print("🚀 Starting LIVE DDoS Detection...")
+    print("🚀 Starting LIVE DDoS Detection with Dynamic Risk...")
     print("Press Ctrl+C to stop\n")
-
     threading.Thread(target=start_sniffing, daemon=True).start()
-
     while True:
         process_buffer()
-        time.sleep(0.5)
+        time.sleep(0.5)   # check every 0.5 sec

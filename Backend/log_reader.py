@@ -21,7 +21,6 @@ def read_logs_tail(n=100):
                     try:
                         entries.append(json.loads(line))
                     except json.JSONDecodeError:
-                        # Skip malformed lines instead of crashing
                         continue
     except Exception as e:
         print(f"Error reading logs: {e}")
