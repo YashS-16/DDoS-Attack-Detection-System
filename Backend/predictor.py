@@ -23,12 +23,12 @@ print(type(rf))
 print(type(xgb))
 print(type(lr))
 
-# -------- SMOOTHING (LIGHT) -------- #
+# -------- SMOOTHING -------- #
 risk_history = []
 
 def smooth_score(score):
     risk_history.append(score)
-    if len(risk_history) > 3:   # reduced smoothing window
+    if len(risk_history) > 3:
         risk_history.pop(0)
     return sum(risk_history) / len(risk_history)
 
@@ -36,12 +36,14 @@ def smooth_score(score):
 # -------- PREDICTION -------- #
 def predict(data_row):
     try:
+        # -------- PREPROCESS -------- #
         data_df = pd.DataFrame([data_row])
         data_df = data_df[feature_columns]
 
         data_scaled = scaler.transform(data_df)
         data_scaled = pd.DataFrame(data_scaled, columns=feature_columns)
 
+        # -------- MODEL OUTPUT -------- #
         rf_prob = rf.predict_proba(data_scaled.values)[0][1]
         xgb_prob = xgb.predict_proba(data_scaled.values)[0][1]
         lr_prob = lr.predict_proba(data_scaled.values)[0][1]
@@ -51,26 +53,27 @@ def predict(data_row):
         # -------- BASE SCORE -------- #
         base_score = (0.5 * rf_prob + 0.4 * xgb_prob + 0.1 * lr_prob) * 100
 
-        # -------- BOOST LOGIC (IMPORTANT FOR DEMO) -------- #
+        # -------- CONTROLLED BOOST -------- #
         boost = 0
 
-        # moderate traffic → visible increase
         if rf_prob > 0.4 or xgb_prob > 0.4:
-            boost += 20
-
-        # strong signals → high spike
-        if rf_prob > 0.6 or xgb_prob > 0.6:
-            boost += 30
-
-        # anomaly boost
-        if anomaly:
-            boost += 15
-
-        # reconstruction error boost
-        if error > 5:
             boost += 10
 
+        if rf_prob > 0.6 or xgb_prob > 0.6:
+            boost += 15
+
+        if anomaly:
+            boost += 10
+
+        if error > 5:
+            boost += 5
+
+        # -------- FINAL SCORE -------- #
         risk_score = base_score + boost
+
+        # -------- DECAY -------- #
+        if base_score < 40:
+            risk_score *= 0.7  
 
         # -------- CLAMP -------- #
         risk_score = max(0, min(100, risk_score))
