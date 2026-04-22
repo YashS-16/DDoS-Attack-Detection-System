@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     confusion_matrix, classification_report,
@@ -14,19 +14,24 @@ from sklearn.metrics import (
 
 print('Model Training Started....')
 
-# ------ FUNCTIONS ------ #
+# ---------------- SETTINGS ---------------- #
+
+FAST_MODE = True      # 🔥 change to False for final run
+SHOW_PLOTS = False    # disable plots for speed
+
+# ---------------- FUNCTIONS ---------------- #
 
 def evaluate_model(name, y_train, y_train_pred, y_train_prob,
                    y_test, y_test_pred, y_test_prob):
 
-    print(f"\n------ {name} PERFORMANCE ------n")
+    print(f"\n------ {name} PERFORMANCE ------\n")
 
     def metrics(split, y_true, y_pred, y_prob):
         print(f"\n--- {split} ---")
         print("Accuracy :", accuracy_score(y_true, y_pred))
-        print("Precision:", precision_score(y_true, y_pred))
-        print("Recall   :", recall_score(y_true, y_pred))
-        print("F1 Score :", f1_score(y_true, y_pred))
+        print("Precision:", precision_score(y_true, y_pred, zero_division=0))
+        print("Recall   :", recall_score(y_true, y_pred, zero_division=0))
+        print("F1 Score :", f1_score(y_true, y_pred, zero_division=0))
 
         if y_prob is not None:
             print("ROC-AUC  :", roc_auc_score(y_true, y_prob))
@@ -44,56 +49,57 @@ def plot_confusion(y_true, y_pred, title):
     plt.show()
 
 
-def plot_roc(y_true, y_prob, title):
-    fpr, tpr, _ = roc_curve(y_true, y_prob)
-    roc_auc = auc(fpr, tpr)
+# ---------------- PATH SETUP ---------------- #
 
-    plt.figure()
-    plt.plot(fpr, tpr, label=f"AUC = {roc_auc:.4f}")
-    plt.plot([0, 1], [0, 1], '--')
-    plt.legend()
-    plt.title(title)
-    plt.xlabel("FPR")
-    plt.ylabel("TPR")
-    plt.show()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "../Models")
+DATA_PATH = os.path.join(BASE_DIR, "../Data/cleaned_data/processed_data.csv")
 
+os.makedirs(MODEL_DIR, exist_ok=True)
 
-def plot_pr(y_true, y_prob, title):
-    p, r, _ = precision_recall_curve(y_true, y_prob)
+# ---------------- LOAD DATA ---------------- #
 
-    plt.figure()
-    plt.plot(r, p)
-    plt.title(title)
-    plt.xlabel("Recall")
-    plt.ylabel("Precision")
-    plt.show()
+data = pd.read_csv(DATA_PATH)
 
+X = data.drop('Label', axis=1)
+y = data['Label']
 
-# ------ LOAD DATA ------ #
-
-data = pd.read_csv(r'Data\cleaned_data\processed_data.csv')
-
-small_data = data.sample(frac=0.5, random_state=42).drop_duplicates()
-X = small_data.drop('Label', axis=1)
-y = small_data['Label']
-
-# ------ SPLIT ------ #
+# ---------------- SPLIT ---------------- #
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=42
 )
 
-# ------ TRAIN ------ #
+# ---------------- TRAIN ---------------- #
 
 model = RandomForestClassifier(
-    n_estimators=100,
+    n_estimators=50 if FAST_MODE else 100,
     random_state=42,
     n_jobs=-1
 )
 
 model.fit(X_train, y_train)
 
-# ------ PREDICT ------ #
+# ---------------- LEAKAGE TEST ---------------- #
+
+print("\nRunning Leakage Test...")
+
+if FAST_MODE:
+    X_cv = X.sample(frac=0.3, random_state=42)
+    y_cv = y.loc[X_cv.index]
+else:
+    X_cv = X
+    y_cv = y
+
+y_shuffled = y_cv.sample(frac=1, random_state=42).values
+
+model_leak = RandomForestClassifier(n_estimators=50, random_state=42)
+
+leak_scores = cross_val_score(model_leak, X_cv, y_shuffled, cv=3 if FAST_MODE else 5)
+
+print("Leakage test score:", leak_scores.mean())
+
+# ---------------- PREDICT ---------------- #
 
 y_pred = model.predict(X_test)
 y_prob = model.predict_proba(X_test)[:, 1]
@@ -101,7 +107,7 @@ y_prob = model.predict_proba(X_test)[:, 1]
 y_train_pred = model.predict(X_train)
 y_train_prob = model.predict_proba(X_train)[:, 1]
 
-# ------ EVALUATE ------ #
+# ---------------- EVALUATE ---------------- #
 
 evaluate_model("Random Forest",
                y_train, y_train_pred, y_train_prob,
@@ -110,15 +116,7 @@ evaluate_model("Random Forest",
 print("\n--- Classification Report ---")
 print(classification_report(y_test, y_pred))
 
-# ------ PLOTS ------ #
-
-plot_confusion(y_train, y_train_pred, "RF Train CM")
-plot_confusion(y_test, y_pred, "RF Test CM")
-
-plot_roc(y_test, y_prob, "RF ROC")
-plot_pr(y_test, y_prob, "RF PR")
-
-# ------ MODEL QUALITY CHECK ------ #
+# ---------------- MODEL CHECK ---------------- #
 
 recall = recall_score(y_test, y_pred)
 f1 = f1_score(y_test, y_pred)
@@ -149,31 +147,34 @@ else:
 
 print(f"\nSummary: Recall: {recall:.3f} | F1: {f1:.3f} | AUC: {auc_score:.3f}")
 
-# ------ FEATURE IMPORTANCE ------ #
+# ---------------- FEATURE IMPORTANCE ---------------- #
 
-importance = model.feature_importances_
-feat_imp = pd.Series(importance, index=X.columns).sort_values(ascending=False)
+if SHOW_PLOTS:
+    importance = model.feature_importances_
+    feat_imp = pd.Series(importance, index=X.columns).sort_values(ascending=False)
 
-print("\nTop 20 Features:\n", feat_imp.head(20))
+    print("\nTop 20 Features:\n", feat_imp.head(20))
 
-feat_imp.head(20).plot(kind='bar')
-plt.title('Top 20 Important Features')
-plt.show()
+    feat_imp.head(20).plot(kind='bar')
+    plt.title('Top 20 Important Features')
+    plt.show()
 
-# ------ CROSS VALIDATION ------ #
+# ---------------- CROSS VALIDATION ---------------- #
 
-scores = cross_val_score(
-    RandomForestClassifier(n_estimators=100, random_state=42),
-    X, y, cv=5
+print("\nRunning Cross Validation...")
+
+cv = StratifiedKFold(n_splits=3 if FAST_MODE else 5, shuffle=True, random_state=42)
+
+cv_scores = cross_val_score(
+    RandomForestClassifier(n_estimators=50, random_state=42),
+    X_cv, y_cv, cv=cv
 )
 
-print("Cross-validation scores:", scores)
-print("Average:", scores.mean())
+print("Cross-validation scores:", cv_scores)
+print("Average:", cv_scores.mean())
 
-# ------ SAVE ------ #
+# ---------------- SAVE ---------------- #
 
-os.makedirs('Models', exist_ok=True)
-joblib.dump(model, 'Models/random_forest.pkl')
+joblib.dump(model, os.path.join(MODEL_DIR, "random_forest.pkl"))
 
-print('Random Forest Model Saved!!')
-
+print('\nRandom Forest Model Saved!!')

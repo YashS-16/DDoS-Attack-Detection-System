@@ -41,10 +41,18 @@ def plot_confusion(y_true, y_pred, title):
     plt.ylabel("Actual")
     plt.show()
 
+# Saving models
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "../Models/autoencoder_mlp.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "../Models/quantile_scaler.pkl")
+THRESHOLD_PATH = os.path.join(BASE_DIR, "../Models/autoencoder_threshold_mlp.pkl")
 
 # ------ LOAD DATA ------ #
 
-data = pd.read_csv(r'Data\cleaned_data\processed_data.csv')
+DATA_PATH = os.path.join(BASE_DIR, "../Data/cleaned_data/processed_data.csv")
+
+data = pd.read_csv(DATA_PATH)
 X = data.drop('Label', axis=1)
 y = data['Label']
 
@@ -122,9 +130,9 @@ plt.show()
 
 # ------ SAVE ------ #
 
-os.makedirs("Models", exist_ok=True)
-joblib.dump(autoencoder, "../Models/autoencoder_mlp.pkl")
-joblib.dump(scaler, "../Models/quantile_scaler.pkl")
-joblib.dump(threshold, "../Models/autoencoder_threshold_mlp.pkl")
+os.makedirs(os.path.join(BASE_DIR, "../Models"), exist_ok=True)
+joblib.dump(autoencoder, MODEL_PATH)
+joblib.dump(scaler, SCALER_PATH)
+joblib.dump(threshold, THRESHOLD_PATH)
 
 print("All saved.")

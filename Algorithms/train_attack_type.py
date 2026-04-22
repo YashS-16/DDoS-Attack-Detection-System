@@ -2,17 +2,26 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import os
 
-print("------ Training Attack Type Classifier (Heuristic) ------ ")
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from xgboost import XGBClassifier
+
+print("------ Training Attack Type Classifier ------")
+
+# ------ PATH SETUP ------ #
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "../Models")
+DATA_PATH = os.path.join(BASE_DIR, "../Data/cleaned_data/processed_data.csv")
+
+os.makedirs(MODEL_DIR, exist_ok=True)
 
 # ------ LOAD DATA ------ #
 
-data = pd.read_csv(r'Data/cleaned_data\processed_data.csv')
+data = pd.read_csv(DATA_PATH)
 
 # ------ CREATE ATTACK TYPES ------ #
 
@@ -21,7 +30,7 @@ attack_mask = data['Label'] == 1
 
 data.loc[attack_mask & (data['Protocol'] == 6) & (data['SYN Flag Count'] > 10), 'AttackType'] = 'SYN Flood'
 data.loc[attack_mask & (data['Protocol'] == 17), 'AttackType'] = 'UDP Flood'
-data.loc[attack_mask & (data['Destination Port'].isin([80,443])), 'AttackType'] = 'HTTP Flood'
+data.loc[attack_mask & (data['Destination Port'].isin([80, 443])), 'AttackType'] = 'HTTP Flood'
 data.loc[attack_mask & (data['AttackType'] == 'Benign'), 'AttackType'] = 'DDoS Attack'
 
 # ------ FILTER ATTACK DATA ------ #
@@ -31,7 +40,8 @@ attack_data = data[data['Label'] == 1].copy()
 X = attack_data.drop(['Label', 'AttackType'], axis=1)
 y = attack_data['AttackType']
 
-# Encode labels
+# ------ ENCODE LABELS ------ #
+
 le = LabelEncoder()
 y_encoded = le.fit_transform(y)
 
@@ -51,7 +61,9 @@ model = XGBClassifier(
     max_depth=6,
     learning_rate=0.1,
     random_state=42,
-    n_jobs=-1
+    n_jobs=-1,
+    objective='multi:softmax',  
+    num_class=len(le.classes_)
 )
 
 model.fit(X_train, y_train)
@@ -106,8 +118,7 @@ else:
 
 # ------ SAVE ------ #
 
-os.makedirs("Models", exist_ok=True)
-joblib.dump(model, "Models/attack_type_model.pkl")
-joblib.dump(le, "Models/attack_type_label_encoder.pkl")
+joblib.dump(model, os.path.join(MODEL_DIR, "attack_type_model.pkl"))
+joblib.dump(le, os.path.join(MODEL_DIR, "attack_type_label_encoder.pkl"))
 
-print("Attack type model saved.")
+print("Attack type model saved successfully.")

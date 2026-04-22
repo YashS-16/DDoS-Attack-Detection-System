@@ -77,10 +77,16 @@ def generate_alert(prob):
     else:
         return "LOW RISK "
 
+# Saving model
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "../Models")
+os.makedirs(MODEL_DIR, exist_ok=True)
 
 # ------ LOAD DATA ------ #
 
-data = pd.read_csv(r'Data\cleaned_data\processed_data.csv')
+DATA_PATH = os.path.join(BASE_DIR, "../Data/cleaned_data/processed_data.csv")
+data = pd.read_csv(DATA_PATH)
 data = data.drop_duplicates().sample(frac=1, random_state=42)
 
 X = data.drop('Label', axis=1)
@@ -197,5 +203,4 @@ print("Probability:", round(prob, 4))
 print("Alert Level:", alert)
 
 # ------ SAVE ------ #
-joblib.dump(xgb_model, 'Models/xgboost.pkl')
-print('XGBoost Model Saved!!')
+joblib.dump(MODEL_DIR, os.path.join(MODEL_DIR, "xgboost.pkl"))

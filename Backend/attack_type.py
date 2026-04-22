@@ -3,9 +3,9 @@ import pandas as pd
 import os
 
 # Get the directory of this file (Backend/)
-base_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(base_dir, "../Models/attack_type_model.pkl")
-le_path = os.path.join(base_dir, "../Models/attack_type_label_encoder.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "../Models/attack_type_model.pkl")
+le_path = os.path.join(BASE_DIR, "../Models/attack_type_label_encoder.pkl")
 
 model = None
 le = None

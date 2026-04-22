@@ -1,10 +1,15 @@
 import numpy as np
 import pandas as pd
 import joblib
+import os
 
-autoencoder = joblib.load("Models/autoencoder_mlp.pkl")
-scaler = joblib.load("Models/quantile_scaler.pkl")
-threshold = joblib.load("Models/autoencoder_threshold_mlp.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+autoencoder = joblib.load(os.path.join(BASE_DIR, "../Models/autoencoder_mlp.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "../Models/quantile_scaler.pkl"))
+threshold = joblib.load(os.path.join(BASE_DIR, "../Models/autoencoder_threshold_mlp.pkl"))
+
+
 
 def compute_error(data_row):
     df = pd.DataFrame([data_row])

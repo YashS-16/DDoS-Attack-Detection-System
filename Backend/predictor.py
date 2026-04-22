@@ -1,16 +1,21 @@
 import joblib
 import numpy as np
 import pandas as pd
+import os
 from anomaly import detect_anomaly
 import warnings
 warnings.filterwarnings("ignore")
 
 # Load models
-rf = joblib.load("Models/random_forest.pkl")
-xgb = joblib.load("Models/xgboost.pkl")
-lr = joblib.load("Models/logistic_regression.pkl")
-autoencoder = joblib.load("Models/autoencoder.pkl")
-scaler = joblib.load("Models/scaler.pkl")
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+rf = joblib.load("../Models/random_forest.pkl")
+xgb = joblib.load("../Models/xgboost.pkl")
+lr = joblib.load("../Models/logistic_regression.pkl")
+autoencoder = joblib.load("../Models/autoencoder.pkl")
+scaler = joblib.load("../Models/scaler.pkl")
+ae_scaler = joblib.load(os.path.join(BASE_DIR, "../Models/quantile_scaler.pkl"))
+threshold = joblib.load(os.path.join(BASE_DIR, "../Models/autoencoder_threshold_mlp.pkl"))
 
 feature_columns = scaler.feature_names_in_
 

@@ -69,10 +69,17 @@ def plot_pr(y_true, y_prob, title):
     plt.ylabel("Precision")
     plt.show()
 
+# Saving models
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "../Models")
+os.makedirs(MODEL_DIR, exist_ok=True)
 
 # ------ LOAD DATA ------ #
 
-data = pd.read_csv(r'Data\cleaned_data\processed_data.csv')
+DATA_PATH = os.path.join(BASE_DIR, "../Data/cleaned_data/processed_data.csv")
+
+data = pd.read_csv(DATA_PATH)
 X = data.drop('Label', axis=1)
 y = data['Label']
 
@@ -160,5 +167,6 @@ print(f"Recall: {recall:.3f} | F1: {f1:.3f} | AUC: {auc_score:.3f}")
 
 # ------ SAVE ------ #
 
-joblib.dump(model, "Models/logistic_regression.pkl")
-print("LR model saved.")
+joblib.dump(model, os.path.join(MODEL_DIR, "logistic_regression.pkl"))
+joblib.dump(scaler, os.path.join(MODEL_DIR, "global_scaler.pkl"))
+

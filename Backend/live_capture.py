@@ -238,7 +238,7 @@ def start_sniffing():
     try:
         sniff(iface="enp0s8", prn=process_packet, store=False)
     except OSError:
-        print("Interface issue. Trying 'Wi-Fi'...")
+        print("Interface issue. Trying 'Wi-Fi'(enp0s8)...")
         sniff(iface="enp0s8", prn=process_packet, store=False)
 
 if __name__ == "__main__":
