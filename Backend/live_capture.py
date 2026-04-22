@@ -113,62 +113,67 @@ def process_packet(packet):
 
 # MAIN PROCESSING LOOP
 def process_buffer():
-    print("Process cycle running...")
     global packet_buffer
 
-    # Wait for enough data
-    if len(packet_buffer) < WINDOW_SIZE:
-        if not packet_buffer:
-            return
+    if not packet_buffer:
+        return
 
+    # Wait for enough packets OR timeout
+    if len(packet_buffer) < WINDOW_SIZE:
         if time.time() - packet_buffer[0]['timestamp'] < WINDOW_TIMEOUT:
             return
 
-    # Ensure consistent keys (CRITICAL FIX)
-    for pkt in packet_buffer:
-        for key in REQUIRED_KEYS:
-            if key not in pkt:
-                pkt[key] = 0
+    # -------- FIX 1: TAKE STABLE SNAPSHOT -------- #
+    buffer_copy = packet_buffer.copy()
 
-    # Create DataFrame safely
+    # -------- FIX 2: RESET BUFFER EARLY -------- #
+    packet_buffer = []
+
+    # -------- FIX 3: CLEAN DATA -------- #
     try:
-        df = pd.DataFrame(packet_buffer)
+        df = pd.DataFrame(buffer_copy)
+
+        # Ensure required columns
+        for col in REQUIRED_KEYS:
+            if col not in df.columns:
+                df[col] = 0
+
+        df = df.fillna(0)
+
+        if df.empty or len(df) < 5:
+            return
+
     except Exception as e:
-        print(f"DataFrame error: {e}. Clearing buffer.")
-        packet_buffer.clear()
+        print("DataFrame error:", e)
         return
 
+    # -------- AGGREGATION -------- #
     aggregated = aggregate_features(df)
 
-    # Ignore extremely low traffic (effectively disabled for testing)
     if aggregated["Flow Packets/s"] < 0.1:
-        print("Extremely low traffic - skipping analysis")
-        # packet_buffer.clear()
+        print("Low traffic - skipping")
         return
+
+    # -------- PREDICTION -------- #
     try:
         result = predict(aggregated)
+
         if not isinstance(result, dict):
-            print("Invalid prediction output:", result)
-            packet_buffer.clear()
+            print("Invalid prediction output")
             return
+
     except Exception as e:
         print("Prediction error:", e)
-        packet_buffer.clear()
         return
 
-    # Real IP tracking
-    if "Source IP" in df.columns:
-        ip = df["Source IP"].mode()[0]
-    else:
-        ip = "UNKNOWN"
+    # -------- IP EXTRACTION -------- #
+    ip = df["Source IP"].mode()[0] if "Source IP" in df.columns else "UNKNOWN"
 
-    print("DEBUG result:", result)
-    print("TYPE:", type(result))
-
-   # Raw model prediction
+    # -------- ATTACK TYPE -------- #
     raw_attack = classify_attack_type(aggregated)
 
     risk = result.get("risk_score", 0) * 1.5
+
     if risk < 40:
         attack_type = "Normal Traffic"
     elif risk < 70:
@@ -176,7 +181,7 @@ def process_buffer():
     else:
         attack_type = raw_attack
 
-# Alerts & severity
+    # -------- OUTPUT -------- #
     alert = generate_alert(result, attack_type)
     severity = get_severity(result)
 
@@ -188,7 +193,7 @@ def process_buffer():
         "severity": str(severity.replace("🟠", "").replace("🔴", "").replace("🟢", "")),
         "alert": str(alert),
         "anomaly": bool(result.get("anomaly", False)),
-        "reconstruction_error": float(round(result.get("error",0),3)),
+        "reconstruction_error": float(round(result.get("error", 0), 3)),
         "models": {
             "rf_prob": float(result["rf_prob"]),
             "xgb_prob": float(result["xgb_prob"]),
@@ -198,41 +203,23 @@ def process_buffer():
         "attack_type": str(attack_type),
     }
 
-    # LOGGING + SYSTEM FEATURES
     log_result(output)
 
+    # -------- SYSTEM FEATURES -------- #
     threshold_alert = check_threshold()
     if threshold_alert:
-        print("\n🚨 THRESHOLD ALERT:", threshold_alert)
+        print("🚨 THRESHOLD ALERT:", threshold_alert)
 
     early = early_warning()
     if early:
         print("⚠️ EARLY WARNING:", early)
-        
-    top_attacker = (ip, len(packet_buffer))
-    if top_attacker:
-        ip_attacker, count = top_attacker
-        print(f"🔥 Top Attacker: {ip_attacker} | Requests: {count}")
 
-    block_msg = autoblock(ip, output["risk_score"])
-    if block_msg:
-        print(block_msg)
-
-    # OUTPUT DISPLAY
     print("\n" + "=" * 60)
     print(f"[LIVE] {output['timestamp']}")
     print(f"IP: {ip}")
     print(f"Attack Type: {attack_type}")
-    print(f"Alert: {alert}")
     print(f"Risk Score: {output['risk_score']}")
-    print(f"Severity: {severity}")
     print("=" * 60)
-    print("Processing buffer with size:", len(packet_buffer))
-    
-    if risk < 40:
-        print("Normal traffic processed")
-    packet_buffer = packet_buffer[-20:]
-
 # SNIFFING THREAD
 def start_sniffing():
     try:
