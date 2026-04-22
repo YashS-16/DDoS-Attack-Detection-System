@@ -1,18 +1,21 @@
-# live_capture.py – SIMPLE WORKING VERSION
+# live_capture.py – Manual Start/Stop with Persistent Sniffing
 import pandas as pd
 import datetime
 import time
 import threading
-from scapy.all import sniff, IP, TCP, UDP
 import json
 import os
+from scapy.all import sniff, IP, TCP, UDP
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = os.path.join(BASE_DIR, "logs.json")
 
-WINDOW_DURATION = 2.0
+# Global control flag
+capture_running = False
+sniff_thread = None
 window_packets = []
 window_start = time.time()
+WINDOW_DURATION = 2.0
 
 def extract_features_from_packet(packet):
     return {
@@ -28,7 +31,7 @@ def extract_features_from_packet(packet):
 def aggregate_features(df):
     time_span = max(df["timestamp"].max() - df["timestamp"].min(), 1.0)
     pps = len(df) / time_span
-    # Simple risk from pps
+    # Risk from packet rate (bypass ML for reliability)
     if pps < 10:
         risk = 20 + (pps / 10) * 15
     elif pps < 50:
@@ -45,14 +48,18 @@ def aggregate_features(df):
         "ip": df["Source IP"].mode()[0] if not df["Source IP"].mode().empty else "0.0.0.0"
     }
 
-def process_packet(packet):
+def packet_handler(packet):
     global window_packets
+    if not capture_running:
+        return
     window_packets.append(extract_features_from_packet(packet))
     if len(window_packets) > 5000:
         window_packets = window_packets[-2000:]
 
 def process_buffer():
     global window_packets, window_start
+    if not capture_running:
+        return
     now = time.time()
     if now - window_start < WINDOW_DURATION or len(window_packets) < 5:
         return
@@ -73,14 +80,39 @@ def process_buffer():
     }
     with open(LOG_FILE, "a") as f:
         f.write(json.dumps(log_entry) + "\n")
-    print(f"Logged: risk={agg['risk_score']}, pps={agg['packets_per_second']}")
+    print(f"[LOGGED] risk={agg['risk_score']}, pps={agg['packets_per_second']}")
 
-def start_sniffing():
-    sniff(iface="enp0s8", prn=process_packet, store=False)
+def sniff_loop():
+    """Run sniffing in a loop that restarts on error."""
+    while capture_running:
+        try:
+            # Use a timeout so we can check capture_running periodically
+            sniff(iface="enp0s8", prn=packet_handler, store=False, timeout=1)
+        except Exception as e:
+            print(f"Sniff error: {e}")
+            time.sleep(1)
 
+def start_capture():
+    global capture_running, sniff_thread
+    if capture_running:
+        return {"status": "already running"}
+    capture_running = True
+    sniff_thread = threading.Thread(target=sniff_loop, daemon=True)
+    sniff_thread.start()
+    # Also start the aggregation loop (run in main thread or separate)
+    return {"status": "started"}
+
+def stop_capture():
+    global capture_running
+    capture_running = False
+    # Wait for thread to finish (optional)
+    if sniff_thread and sniff_thread.is_alive():
+        sniff_thread.join(timeout=2)
+    return {"status": "stopped"}
+
+def is_running():
+    return {"is_running": capture_running}
+
+# For standalone testing
 if __name__ == "__main__":
-    print("Starting simplified DDoS detector...")
-    threading.Thread(target=start_sniffing, daemon=True).start()
-    while True:
-        process_buffer()
-        time.sleep(0.5)
+    print("Manual control via API. Use start_capture() / stop_capture()")
