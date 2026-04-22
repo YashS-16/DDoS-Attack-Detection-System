@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchLogs, startMonitoring, stopMonitoring, getStatus, type LogEntry } from './services/api';
-import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server, Trash2 } from 'lucide-react';
+import { Activity, Shield, AlertTriangle, ShieldAlert, Play, Square, Server, Trash2, Gauge } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function App() {
@@ -8,30 +8,27 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
   // ---------------- FETCH DATA ----------------
   const loadData = async () => {
-  try {
-    const data = await fetchLogs();
-
-    setLogs(prev => {
-      if (
-        prev.length > 0 &&
-        data.length > 0 &&
-        prev[prev.length - 1]?.timestamp === data[data.length - 1]?.timestamp
-      ) {
-        return prev;
-      }
-
-      return data;
-    });
-
-    setError(null);
-  } catch (err) {
-    console.error('Failed to fetch logs:', err);
-    setError("Failed to fetch logs");
-  }
-};
+    try {
+      const data = await fetchLogs();
+      setLogs(prev => {
+        if (
+          prev.length > 0 &&
+          data.length > 0 &&
+          prev[prev.length - 1]?.timestamp === data[data.length - 1]?.timestamp
+        ) {
+          return prev;
+        }
+        return data;
+      });
+      setError(null);
+    } catch (err) {
+      console.error('Failed to fetch logs:', err);
+      setError("Failed to fetch logs");
+    }
+  };
 
   // ---------------- STATUS ----------------
   const checkStatus = async () => {
@@ -49,12 +46,8 @@ function App() {
   useEffect(() => {
     checkStatus();
     loadData();
-
-    // Poll logs every 2s
     const dataInterval = setInterval(loadData, 2000);
-    // Poll status every 5s to keep UI in sync
     const statusInterval = setInterval(checkStatus, 5000);
-
     return () => {
       clearInterval(dataInterval);
       clearInterval(statusInterval);
@@ -85,7 +78,6 @@ function App() {
   const handleClearLogs = async () => {
     if (!window.confirm("Are you sure you want to clear all logs?")) return;
     try {
-      // We'll need to define this in api.ts
       const { clearLogs } = await import('./services/api');
       await clearLogs();
       setLogs([]);
@@ -95,13 +87,10 @@ function App() {
     }
   };
 
-
   // ---------------- DERIVED DATA ----------------
   const latestLog = logs?.[logs.length - 1] || null;
   const currentRisk = latestLog?.risk_score || 0;
-
   const alerts = logs.filter(l => l.risk_score > 70).slice(-5).reverse();
-
   const chartData = logs.slice(-20).map(l => ({
     time: l.timestamp?.split(' ')?.[1] || l.timestamp || "",
     risk: l.risk_score,
@@ -114,7 +103,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-cyan-500/30">
-      
       {/* Header */}
       <header className="border-b border-white/10 bg-slate-900/50 backdrop-blur-xl sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -130,10 +118,10 @@ function App() {
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-white/5">
-              <div className={`w-2.5 h-2.5 rounded-full ${isRunning ? 'bg-emerald-500 animate-pulse box-shadow-glow-emerald' : 'bg-rose-500'}`} />
+              <div className={`w-2.5 h-2.5 rounded-full ${isRunning ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500'}`} />
               <span className="text-sm font-medium text-slate-300">{isRunning ? 'Active Monitoring' : 'System Offline'}</span>
             </div>
-            
+
             <button
               onClick={handleClearLogs}
               className="flex items-center gap-2 px-4 py-2.5 rounded-lg font-semibold bg-slate-800/50 text-slate-400 hover:bg-slate-700/50 border border-white/5 transition-all duration-300"
@@ -146,15 +134,14 @@ function App() {
             <button
               onClick={isRunning ? handleStop : handleStart}
               className={`flex items-center gap-2 px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
-                isRunning 
-                ? 'bg-rose-500/10 text-rose-500 hover:bg-rose-500/20 border border-rose-500/20' 
-                : 'bg-cyan-500 text-white hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 border border-cyan-400/50'
+                isRunning
+                  ? 'bg-rose-500/10 text-rose-500 hover:bg-rose-500/20 border border-rose-500/20'
+                  : 'bg-cyan-500 text-white hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 border border-cyan-400/50'
               }`}
             >
               {isRunning ? <Square className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
               {isRunning ? 'Stop Capture' : 'Start Capture'}
             </button>
-
           </div>
         </div>
       </header>
@@ -171,8 +158,8 @@ function App() {
           </div>
         )}
 
-        {/* Top Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {/* Top Cards - now 4 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Risk Score Card */}
           <div className="bg-slate-900/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -186,17 +173,15 @@ function App() {
               </span>
               <span className="text-sm text-slate-500 mb-1">/ 100</span>
             </div>
-            
-            {/* Risk Bar */}
             <div className="h-1.5 w-full bg-slate-800 rounded-full mt-5 overflow-hidden">
-              <div 
+              <div
                 className={`h-full transition-all duration-1000 ${currentRisk > 70 ? 'bg-rose-500' : currentRisk > 40 ? 'bg-amber-500' : 'bg-emerald-400'}`}
                 style={{ width: `${Math.min(currentRisk, 100)}%` }}
               />
             </div>
           </div>
 
-          {/* Last Attack Mode */}
+          {/* Traffic Status Card */}
           <div className="bg-slate-900/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex justify-between items-start mb-4 relative z-10">
@@ -213,7 +198,7 @@ function App() {
             </div>
           </div>
 
-          {/* Targeted IP */}
+          {/* Source IP Card */}
           <div className="bg-slate-900/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="flex justify-between items-start mb-4 relative z-10">
@@ -229,8 +214,26 @@ function App() {
               </span>
             </div>
           </div>
+
+          {/* Live Packet Rate Card (NEW) */}
+          <div className="bg-slate-900/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="flex justify-between items-start mb-4 relative z-10">
+              <h3 className="text-slate-400 font-medium">Live Packet Rate</h3>
+              <Gauge className="text-green-400 w-5 h-5" />
+            </div>
+            <div className="relative z-10">
+              <div className="text-3xl font-mono font-bold text-cyan-400">
+                {latestLog?.packets_per_second ?? '—'} <span className="text-sm text-slate-400">pps</span>
+              </div>
+              <span className="text-sm mt-1 block text-slate-400">
+                Packets per second (2s window)
+              </span>
+            </div>
+          </div>
         </div>
 
+        {/* Bottom Section: Chart + Alerts */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Chart */}
           <div className="lg:col-span-2 bg-slate-900/40 border border-white/5 rounded-2xl p-6">
@@ -245,22 +248,22 @@ function App() {
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData}>
                   <defs>
-                     <linearGradient id="colorRisk" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
+                    <linearGradient id="colorRisk" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#06b6d4" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" vertical={false} />
                   <XAxis dataKey="time" stroke="#ffffff40" fontSize={12} tickLine={false} axisLine={false} />
                   <YAxis stroke="#ffffff40" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
-                  <Tooltip 
+                  <Tooltip
                     contentStyle={{ backgroundColor: '#0f172a', borderColor: '#ffffff20', borderRadius: '8px', color: '#fff' }}
                     itemStyle={{ color: '#06b6d4' }}
                   />
-                  <Line 
-                    type="monotone" 
-                    dataKey="risk" 
-                    stroke="#06b6d4" 
+                  <Line
+                    type="monotone"
+                    dataKey="risk"
+                    stroke="#06b6d4"
                     strokeWidth={3}
                     dot={{ r: 4, fill: '#0f172a', stroke: '#06b6d4', strokeWidth: 2 }}
                     activeDot={{ r: 6, fill: '#06b6d4', stroke: '#0f172a', strokeWidth: 2 }}
@@ -296,8 +299,23 @@ function App() {
           </div>
         </div>
 
+        {/* Optional: Live Metrics Card (commented out – uncomment if needed) */}
+        {/* 
+        <div className="mt-6 bg-slate-900/40 border border-white/5 rounded-2xl p-6">
+          <h3 className="text-slate-400 font-medium mb-2">Live Metrics</h3>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <div>RF Prob:</div>
+            <div className="font-mono text-right">{latestLog?.models?.rf_prob || '-'}</div>
+            <div>XGB Prob:</div>
+            <div className="font-mono text-right">{latestLog?.models?.xgb_prob || '-'}</div>
+            <div>LR Prob:</div>
+            <div className="font-mono text-right">{latestLog?.models?.lr_prob || '-'}</div>
+            <div>Anomaly Error:</div>
+            <div className="font-mono text-right">{latestLog?.reconstruction_error || '-'}</div>
+          </div>
+        </div>
+        */}
       </main>
-
     </div>
   );
 }

@@ -198,6 +198,7 @@ def process_buffer():
         },
         "ip": str(ip),
         "attack_type": str(attack_type),
+        "packets_per_second": round(pps, 1)
     }
 
     log_result(output)

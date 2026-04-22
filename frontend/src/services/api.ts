@@ -22,6 +22,7 @@ export interface LogEntry {
   };
   ip: string;
   attack_type: string;
+  packets_per_second?: number;
 }
 
 export const fetchLogs = async (): Promise<LogEntry[]> => {
