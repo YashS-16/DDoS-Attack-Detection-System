@@ -9,15 +9,19 @@ warnings.filterwarnings("ignore")
 # Load models
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-rf = joblib.load("../Models/random_forest.pkl")
-xgb = joblib.load("../Models/xgboost.pkl")
-lr = joblib.load("../Models/logistic_regression.pkl")
-autoencoder = joblib.load("../Models/autoencoder.pkl")
-scaler = joblib.load("../Models/scaler.pkl")
+
+rf = joblib.load(os.path.join(BASE_DIR, "../Models/random_forest.pkl"))
+xgb = joblib.load(os.path.join(BASE_DIR, "../Models/xgboost.pkl"))
+lr = joblib.load(os.path.join(BASE_DIR, "../Models/logistic_regression.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "../Models/global_scaler.pkl"))
 ae_scaler = joblib.load(os.path.join(BASE_DIR, "../Models/quantile_scaler.pkl"))
 threshold = joblib.load(os.path.join(BASE_DIR, "../Models/autoencoder_threshold_mlp.pkl"))
 
 feature_columns = scaler.feature_names_in_
+
+print(type(rf))
+print(type(xgb))
+print(type(lr))
 
 # smoothing buffer
 risk_history = []

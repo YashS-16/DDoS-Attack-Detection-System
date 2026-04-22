@@ -203,4 +203,4 @@ print("Probability:", round(prob, 4))
 print("Alert Level:", alert)
 
 # ------ SAVE ------ #
-joblib.dump(MODEL_DIR, os.path.join(MODEL_DIR, "xgboost.pkl"))
+joblib.dump(xgb_model, os.path.join(MODEL_DIR, "xgboost.pkl"))
