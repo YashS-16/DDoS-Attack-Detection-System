@@ -1,23 +1,26 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
-import json
+import subprocess
+import sys
+import signal
+import time
 from log_reader import read_logs_tail, clear_logs
-from live_capture import start_capture, stop_capture, is_running
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
 CORS(app)
 
-# ------------------ LOGS ------------------
-@app.route('/logs', methods=['GET'])
-def get_logs():
-    """Return last 100 log entries (frontend expects array)"""
-    logs = read_logs_tail(100)
-    return jsonify(logs)   # directly return list, not {logs: logs}
+capture_process = None
+
+# ------------------ GET DATA ------------------
+@app.route('/api/data')
+def get_data():
+    logs = read_logs_tail(50)
+    return jsonify({"logs": logs})
 
 # ------------------ CLEAR LOGS ------------------
-@app.route('/clear_logs', methods=['POST'])
+@app.route('/api/logs/clear', methods=['POST'])
 def clear_log_data():
     if clear_logs():
         return jsonify({"status": "success", "message": "Logs cleared"})
@@ -25,24 +28,48 @@ def clear_log_data():
         return jsonify({"status": "error", "message": "Failed to clear logs"}), 500
 
 # ------------------ START ------------------
-@app.route('/start', methods=['POST'])
+@app.route('/api/start_monitoring', methods=['POST'])
 def start_monitoring():
-    result = start_capture()
-    if result["status"] == "started" or result["status"] == "already running":
-        return jsonify({"status": "started", "message": result.get("message", "Monitoring started")})
-    else:
-        return jsonify({"status": "error", "message": "Failed to start"}), 500
+    global capture_process
+
+    if capture_process is not None and capture_process.poll() is None:
+        return jsonify({"status": "running", "message": "Already running"})
+
+    try:
+        capture_process = subprocess.Popen(
+            [sys.executable, os.path.join(BASE_DIR, 'live_capture.py')],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            preexec_fn=os.setsid if hasattr(os, 'setsid') else None
+        )
+        time.sleep(1)
+        if capture_process.poll() is not None:
+            return jsonify({"status": "error", "message": "Process died immediately"}), 500
+        return jsonify({"status": "started", "message": "Monitoring started successfully."})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 # ------------------ STOP ------------------
-@app.route('/stop', methods=['POST'])
+@app.route('/api/stop_monitoring', methods=['POST'])
 def stop_monitoring():
-    result = stop_capture()
-    return jsonify({"status": result["status"], "message": result.get("message", "")})
+    global capture_process
+
+    if capture_process and capture_process.poll() is None:
+        try:
+            os.killpg(os.getpgid(capture_process.pid), signal.SIGTERM)
+        except:
+            capture_process.terminate()
+        capture_process.wait(timeout=5)
+        capture_process = None
+        return jsonify({"status": "stopped"})
+    return jsonify({"status": "stopped", "message": "Not running"})
 
 # ------------------ STATUS ------------------
-@app.route('/status', methods=['GET'])
+@app.route('/api/status', methods=['GET'])
 def get_status():
-    return jsonify(is_running())
+    global capture_process
+    is_running = capture_process is not None and capture_process.poll() is None
+    return jsonify({"is_running": is_running})
 
 # ------------------ RUN ------------------
 if __name__ == '__main__':
